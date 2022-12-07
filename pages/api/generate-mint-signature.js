@@ -1,0 +1,54 @@
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import axios from "axios";
+
+const fetchUser = async (username) => {
+  let {
+    data: { data },
+  } = await axios(
+    "https://api.twitter.com/2/tweets/1548036479187685380/retweeted_by",
+    {
+      headers: {
+        Authorization:
+          "Bearer TWITTER_BEARER_TOKEN_REMOVED",
+      },
+    }
+  );
+
+  // const test = JSON.parse(twitter_user);
+  let retweetObj = data.find((o) => o.username === username);
+  let retweetBool = typeof retweetObj === "object";
+
+  return retweetBool;
+};
+
+export default async function generateMintSignature(req, res) {
+  // De-construct body from request
+  const { address, username } = JSON.parse(req.body);
+
+  // Now use the SDK on Goerli to get the signature drop
+  const goerliSDK = ThirdwebSDK.fromPrivateKey(
+    "9e413db3f8957217067ee83acecb437d1d0e914bad4d704e0c1c845a2fdbb0df",
+    "goerli"
+  );
+  const signatureDrop = await goerliSDK.getContract(
+    "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF",
+    "signature-drop"
+  );
+
+  let userHasToken = await fetchUser(username);
+  console.log("token", userHasToken);
+  // If the user has an early access NFT, generate a mint signature
+  if (userHasToken) {
+    const mintSignature = await signatureDrop.signature.generate({
+      to: address, // Can only be minted by the address we checked earlier
+      price: "0", // Free!
+      mintStartTime: new Date(0), // now
+    });
+
+    res.status(200).json(mintSignature);
+  } else {
+    res.status(400).json({
+      message: "User does not have an early access NFT",
+    });
+  }
+}

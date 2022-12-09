@@ -3,23 +3,11 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { useLogout } from "@thirdweb-dev/react";
 import { getUser } from "../../auth.config";
 import checkBalance from "../../utils/checkBalance";
-import styles from "../../styles/Home.module.css";
 
 export default function Home() {
   const logout = useLogout();
 
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.h1}>Restricted Access Page</h1>
-      <p className={styles.explain}>
-        Thanks for being a member of our NFT community!
-      </p>
-
-      <button className={styles.mainButton} onClick={logout}>
-        Logout
-      </button>
-    </div>
-  );
+  return <div>welcome to the fuckshop</div>;
 }
 
 export async function getServerSideProps(context) {

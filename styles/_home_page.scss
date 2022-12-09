@@ -1,0 +1,21 @@
+.main-container {
+  overflow: auto;
+  scroll-behavior: smooth;
+  height: 100vh;
+}
+
+.header-svg {
+  position: absolute;
+  z-index: 5;
+  height: 100vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-h1 {
+  position: absolute;
+  color: $light-color;
+}

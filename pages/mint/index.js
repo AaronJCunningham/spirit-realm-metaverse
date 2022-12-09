@@ -53,49 +53,30 @@ const Home = () => {
   return (
     <div className="page-container">
       {/* Top Section */}
-      <h1 className="h1">Signature Drop</h1>
-
+      <h1 className="h1">5K Digital Collectibles</h1>
       <p className="describe">
-        In this example, users who own one of our
-        <a href="https://opensea.io/collection/thirdweb-community">
-          Early Access NFTs
-        </a>
-        can mint for free using the
-        <a href="https://portal.thirdweb.com/pre-built-contracts/signature-drop#signature-minting">
-          Signature Mint
-        </a>
-        . However, for those who don&apos;t own an Early Access NFT, they can
-        still claim using the regular claim function.
+        Only holders of our collection can vote on the movie and visit the
+        metaverse, luckily for you they are free. Claiming a free NFT is simple:
       </p>
-
+      <ul>
+        <li>Follow us on Twitter</li>
+        <li>Retweet our pinned post</li>
+        <li>Claim a free NFT</li>
+      </ul>
+      <p className="describe">
+        Only one free NFT per wallet, but if you would like to buy another go
+        ahead and use the Buy NFT section below.
+      </p>
       <div className="nftBoxGrid">
-        <div className="optionSelectBox">
-          <img src={`/icons/drop.webp`} alt="drop" className="cardImg" />
-          <h2 className="selectBoxTitle">Claim NFT</h2>
-          <p className="selectBoxDescription">
-            Use the normal <code>claim</code> function to mint an NFT under the
-            conditions of the claim phase.
-          </p>
-
-          <Web3Button
-            contractAddress={signatureDropAddress}
-            action={() => claim()}
-            colorMode="dark"
-          >
-            Claim
-          </Web3Button>
-        </div>
-
         <div className="optionSelectBox">
           <img
             src={`/icons/analytics.png`}
             alt="signature-mint"
             className="cardImg"
           />
-          <h2 className="selectBoxTitle">Mint with Signature</h2>
+          <h2 className="selectBoxTitle">Free NFT for our followers</h2>
           <p className="selectBoxDescription">
-            Check if you are eligible to mint an NFT for free, by using
-            signature-based minting.
+            Our Twitter followers can claim a free NFT. See instructions above.
           </p>
 
           <Web3Button
@@ -103,7 +84,20 @@ const Home = () => {
             action={() => claimWithSignature()}
             colorMode="dark"
           >
-            Claim With Signature
+            Free NFT
+          </Web3Button>
+        </div>
+        <div className="optionSelectBox">
+          <img src={`/icons/drop.webp`} alt="drop" className="cardImg" />
+          <h2 className="selectBoxTitle">Purchase an NFT</h2>
+          <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
+
+          <Web3Button
+            contractAddress={signatureDropAddress}
+            action={() => claim()}
+            colorMode="dark"
+          >
+            Claim
           </Web3Button>
         </div>
       </div>

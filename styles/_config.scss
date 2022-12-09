@@ -19,8 +19,12 @@ a {
   }
 }
 
+ul {
+  color: $light-color;
+}
+
 .page-container {
-  margin-top: 96px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;

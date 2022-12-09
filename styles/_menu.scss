@@ -1,8 +1,81 @@
-.menu-container {
-  position: absolute;
+.menu_button_fixed {
+  z-index: 1113;
+  position: fixed;
   top: 10px;
-  right: 15px;
-  font-size: 1.2rem;
+  right: 20px;
+  background: none;
   color: $light-color;
-  z-index: 2;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  font-size: 1.4rem;
+  font-weight: 300 !important;
+}
+.circle_menu_container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 950;
+  pointer-events: none;
+}
+
+.svg_circle {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1100;
+}
+
+.menu_container {
+  display: flex;
+  position: fixed;
+  top: -15%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1112;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu_main_list {
+  z-index: 1112;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding-inline-start: 0;
+
+  li {
+    font-size: 2rem;
+    padding: 0.1rem;
+    text-align: right;
+    text-decoration: none;
+    z-index: 1200;
+    cursor: pointer;
+  }
+
+  li:hover {
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 501px) {
+  .menu_main_list {
+    li {
+      font-size: 2rem;
+    }
+
+    li:hover {
+      color: white;
+    }
+  }
 }

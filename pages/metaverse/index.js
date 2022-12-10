@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <div className="describe">
         welcome to the fuckshop
-        {isMobile && <p>SORRY DOESN|"T WORK ON MOBILE</p>}
+        {isMobile && <p>SORRY DOESNT WORK ON MOBILE</p>}
       </div>
     </>
   );

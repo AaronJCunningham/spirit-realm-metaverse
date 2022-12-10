@@ -3,16 +3,18 @@ import { Canvas } from "@react-three/fiber";
 
 import { Intro } from "./Intro";
 import { Effects } from "./Effects";
-import { Ghost } from "./Animatedghost01";
+
 import { Lighting } from "./Lighting";
 import { Suspense } from "react";
 
-import { Shiloh } from "./Shiloh1";
+import { Shiloh } from "./Shiloh03";
 
 import { useProgressStore } from "../../store";
 import { useEffect } from "react";
+import BallLight from "./BallLight";
+import { TextForLandingPage } from "./TextForLandingPage";
 
-const HomePageOne = () => {
+const HomePageOne = ({ isMobile }) => {
   const { active, progress, errors, item, loaded, total } = useProgress();
 
   const [progressStore, setProgressStore] = useProgressStore((state) => [
@@ -26,15 +28,24 @@ const HomePageOne = () => {
 
   return (
     <div className="canvas">
-      <Canvas>
+      <TextForLandingPage progress={progress} />
+      <Canvas
+        camera={{
+          fov: 15,
+          near: 0.1,
+          far: 1000,
+          position: isMobile ? [1, -0.1, 2.9] : [1, -0.3, 2.9],
+        }}
+      >
         <Suspense fallback={null}>
           <Effects />
           <Lighting />
+          <BallLight />
 
           {/* <Intro /> */}
           <Shiloh />
         </Suspense>
-        {/* <OrbitControls enableZoom={false} autoRotate /> */}
+        {/* <OrbitControls /> */}
       </Canvas>
     </div>
   );

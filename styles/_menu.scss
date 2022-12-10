@@ -1,18 +1,45 @@
 .menu_button_fixed {
-  z-index: 1113;
-  position: fixed;
-  top: 10px;
-  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: none;
   color: $light-color;
   border: none;
+  padding: 0 0.3rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 300 !important;
+}
+
+.a-menu {
+  padding: 0 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-button-container {
+  color: $light-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+  z-index: 1113;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: $light-color;
+  border: none;
   padding: 0;
-  font: inherit;
+
   cursor: pointer;
   outline: inherit;
   font-size: 1.4rem;
   font-weight: 300 !important;
 }
+
 .circle_menu_container {
   width: 100vw;
   height: 100vh;
@@ -68,6 +95,12 @@
   }
 }
 
+.social-menu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 501px) {
   .menu_main_list {
     li {
@@ -77,5 +110,12 @@
     li:hover {
       color: white;
     }
+  }
+  .menu_button_fixed {
+    font-size: 1rem;
+  }
+
+  .menu-button-container {
+    font-size: 1rem;
   }
 }

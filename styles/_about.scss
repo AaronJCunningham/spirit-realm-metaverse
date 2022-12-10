@@ -1,0 +1,27 @@
+.about_content {
+  padding-top: 80px;
+  padding-bottom: 50px;
+  width: 95%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.grid-container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-item {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 501px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}

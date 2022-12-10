@@ -2,6 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { gsap } from "gsap";
 
+import { BsTwitter, BsDiscord, BsYoutube } from "react-icons/bs";
+import { AiOutlineMenu, AiOutlineCloseCircle } from "react-icons/ai";
+import { SiDiscord } from "react-icons/si";
+
 import { useMenu } from "../../store";
 
 const Menu = ({ width }) => {
@@ -22,15 +26,22 @@ const Menu = ({ width }) => {
     router.push(href);
     setShow(false);
     gsap.to(circleRef.current, { r: 0 });
+    useMenu.setState({ menu: false });
+  };
 
+  const handleSocial = () => {
+    setShow(false);
+    gsap.to(circleRef.current, { r: 0 });
     useMenu.setState({ menu: false });
   };
 
   return (
     <>
-      <button className="menu_button_fixed" onClick={handleMenuOpen}>
-        {show ? "close" : "menu"}
-      </button>
+      <div className="menu-button-container">
+        <button className="menu_button_fixed" onClick={handleMenuOpen}>
+          {show ? <AiOutlineCloseCircle /> : <AiOutlineMenu />}
+        </button>
+      </div>
       {show ? (
         <div className="menu_container">
           <ul className="menu_main_list">
@@ -40,7 +51,7 @@ const Menu = ({ width }) => {
                 gsap.to(circleRef.current, { fill: "#71797E" })
               }
             >
-              HOME
+              SHILOH
             </li>
             <li
               onClick={() => handleLink("/mint")}
@@ -66,14 +77,7 @@ const Menu = ({ width }) => {
             >
               STORY
             </li>
-            <li
-              onClick={() => handleLink("/roadmap")}
-              onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "D3D3D3" })
-              }
-            >
-              ROADMAP
-            </li>
+
             <li
               onClick={() => handleLink("/about")}
               onMouseEnter={() =>
@@ -81,6 +85,34 @@ const Menu = ({ width }) => {
               }
             >
               ABOUT
+            </li>
+            <li>
+              <div className="social-menu-container" onClick={handleSocial}>
+                <a
+                  className="a-menu"
+                  href="https://twitter.com/xelevendottech"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <BsTwitter />
+                </a>
+                <a
+                  className="a-menu"
+                  href="https://discord.gg/Th8WjmbESZ"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <SiDiscord />
+                </a>
+                <a
+                  className="a-menu"
+                  href="youtube.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <BsYoutube />
+                </a>
+              </div>
             </li>
           </ul>
         </div>

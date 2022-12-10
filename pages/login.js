@@ -5,7 +5,7 @@ const contractAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
 
 export default function Login() {
   const address = useAddress(); // Get the user's address
-  const login = useLogin(); // Sign in
+  const login = useLogin({ redirectTo: "/metaverse" }); // Sign in
 
   return (
     <div className="container">

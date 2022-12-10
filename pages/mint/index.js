@@ -69,11 +69,6 @@ const Home = () => {
       </p>
       <div className="nftBoxGrid">
         <div className="optionSelectBox">
-          <img
-            src={`/icons/analytics.png`}
-            alt="signature-mint"
-            className="cardImg"
-          />
           <h2 className="selectBoxTitle">Free NFT for our followers</h2>
           <p className="selectBoxDescription">
             Our Twitter followers can claim a free NFT. See instructions above.
@@ -88,7 +83,6 @@ const Home = () => {
           </Web3Button>
         </div>
         <div className="optionSelectBox">
-          <img src={`/icons/drop.webp`} alt="drop" className="cardImg" />
           <h2 className="selectBoxTitle">Purchase an NFT</h2>
           <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
 

@@ -24,10 +24,12 @@ const fetchUser = async (username) => {
 export default async function generateMintSignature(req, res) {
   // De-construct body from request
   const { address, username } = JSON.parse(req.body);
-
+  const key = process.env.PRIVATE_KEY;
+  console.log("key", key);
   // Now use the SDK on Goerli to get the signature drop
   const goerliSDK = ThirdwebSDK.fromPrivateKey(
-    "9e413db3f8957217067ee83acecb437d1d0e914bad4d704e0c1c845a2fdbb0df",
+    // "9e413db3f8957217067ee83acecb437d1d0e914bad4d704e0c1c845a2fdbb0df",
+    key,
     "goerli"
   );
   const signatureDrop = await goerliSDK.getContract(

@@ -1,7 +1,7 @@
 // You might want to store this in an environment variable or something
 const axios = require("axios");
 
-const fetchUser = async () => {
+const fetchTwitterUser = async () => {
   let {
     data: { data },
   } = await axios(
@@ -22,4 +22,4 @@ const fetchUser = async () => {
 
   return retweetBool;
 };
-fetchUser();
+fetchTwitterUser();

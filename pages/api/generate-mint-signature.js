@@ -27,13 +27,9 @@ export default async function generateMintSignature(req, res) {
   const key = process.env.PRIVATE_KEY;
   console.log("key", key);
   // Now use the SDK on Goerli to get the signature drop
-  const goerliSDK = ThirdwebSDK.fromPrivateKey(
-    // "9e413db3f8957217067ee83acecb437d1d0e914bad4d704e0c1c845a2fdbb0df",
-    key,
-    "goerli"
-  );
+  const goerliSDK = ThirdwebSDK.fromPrivateKey(key, "goerli");
   const signatureDrop = await goerliSDK.getContract(
-    "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF",
+    process.env.CONTRACT_ADDRESS,
     "signature-drop"
   );
 

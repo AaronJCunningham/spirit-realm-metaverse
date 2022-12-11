@@ -1,7 +1,7 @@
 import { useAddress, useContract, Web3Button } from "@thirdweb-dev/react";
 import { SignedPayload721WithQuantitySignature } from "@thirdweb-dev/sdk";
 
-const signatureDropAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
+const signatureDropAddress = process.env.CONTRACT_ADDRESS;
 
 const Home = () => {
   const address = useAddress();
@@ -52,7 +52,6 @@ const Home = () => {
 
   return (
     <div className="page-container">
-      {/* Top Section */}
       <h1 className="h1">5K Digital Collectibles</h1>
       <p className="describe">
         Only holders of our collection can vote on the movie and visit the
@@ -85,7 +84,6 @@ const Home = () => {
         <div className="optionSelectBox">
           <h2 className="selectBoxTitle">Purchase an NFT</h2>
           <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
-
           <Web3Button
             contractAddress={signatureDropAddress}
             action={() => claim()}

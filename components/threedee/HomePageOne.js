@@ -7,7 +7,7 @@ import { Effects } from "./Effects";
 import { Lighting } from "./Lighting";
 import { Suspense } from "react";
 
-import { Shiloh } from "./Shiloh03";
+import { Shiloh } from "./Shiloh06";
 
 import { useProgressStore } from "../../store";
 import { useEffect } from "react";

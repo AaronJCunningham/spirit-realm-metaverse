@@ -7,8 +7,11 @@
   border: none;
   padding: 0 0.3rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 300 !important;
+  :hover {
+    color: $dark-color;
+  }
 }
 
 .a-menu {
@@ -16,6 +19,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  :hover {
+    color: $dark-color;
+  }
 }
 
 .menu-button-container {
@@ -83,6 +89,7 @@
 
   li {
     font-size: 2rem;
+    font-weight: 700;
     padding: 0.1rem;
     text-align: right;
     text-decoration: none;
@@ -91,7 +98,7 @@
   }
 
   li:hover {
-    color: white;
+    color: $dark-color;
   }
 }
 

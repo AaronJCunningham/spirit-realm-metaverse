@@ -53,14 +53,7 @@ const Menu = ({ width }) => {
             >
               SHILOH
             </li>
-            <li
-              onClick={() => handleLink("/mint")}
-              onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#B2BEB5" })
-              }
-            >
-              MINT
-            </li>
+
             <li
               onClick={() => handleLink("/metaverse")}
               onMouseEnter={() =>
@@ -68,6 +61,14 @@ const Menu = ({ width }) => {
               }
             >
               METAVERSE
+            </li>
+            <li
+              onClick={() => handleLink("/mint")}
+              onMouseEnter={() =>
+                gsap.to(circleRef.current, { fill: "#B2BEB5" })
+              }
+            >
+              MINT
             </li>
             <li
               onClick={() => handleLink("/story")}

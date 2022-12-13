@@ -1,9 +1,29 @@
+import { useRef, useState } from "react";
+import { gsap } from "gsap";
 import { useAddress, useContract, Web3Button } from "@thirdweb-dev/react";
 import { SignedPayload721WithQuantitySignature } from "@thirdweb-dev/sdk";
 
 const signatureDropAddress = process.env.CONTRACT_ADDRESS;
 
 const Home = () => {
+  const refFree = useRef();
+  const refBuy = useRef();
+
+  const handleMouseEnter = (ref) => {
+    gsap.to(ref.current, {
+      width: "82%",
+      "min-height": "255px",
+      duration: 0.5,
+    });
+  };
+  const handleMouseLeave = (ref) => {
+    gsap.to(ref.current, {
+      width: "80%",
+      "min-height": "250px",
+      duration: 0.5,
+    });
+  };
+
   const address = useAddress();
 
   const { contract: signatureDrop } = useContract(
@@ -52,22 +72,38 @@ const Home = () => {
 
   return (
     <div className="page-container">
-      <h1 className="h1">5K Digital Collectibles</h1>
-      <p className="describe">
-        Only holders of our collection can vote on the movie and visit the
-        metaverse, luckily for you they are free. Claiming a free NFT is simple:
+      <h1 className="h1-mint">5K NFTS</h1>
+      <p className="description">
+        Only the owners of our NFT collection can vote on what happens next in
+        our movie. Luckily for you, these NFTs are free to obtain. In addition
+        to giving you the ability to participate in the decision-making process
+        for the movie, owning an NFT will also unlock a range of features on our
+        roadmap. These features will be available exclusively to NFT owners, so
+        be sure to get yours today.
       </p>
-      <ul>
-        <li>Follow us on Twitter</li>
-        <li>Retweet our pinned post</li>
-        <li>Claim a free NFT</li>
-      </ul>
-      <p className="describe">
-        Only one free NFT per wallet, but if you would like to buy another go
-        ahead and use the Buy NFT section below.
+      <div className="list-container">
+        <h4>It's super simple to claim a free NFT</h4>
+        <ul className="ul-mint">
+          <li>Follow us on Twitter</li>
+          <li>Retweet our pinned post</li>
+          <li>Claim a free NFT</li>
+        </ul>
+      </div>
+      <p className="description">
+        You are only eligible to receive one free NFT per wallet. If you would
+        like to purchase additional NFTs, please use the Buy NFT section below.
+        This will allow you to expand your collection and unlock even more
+        features on our roadmap. Thank you for your interest in our NFT
+        collection!
       </p>
       <div className="nftBoxGrid">
-        <div className="optionSelectBox">
+        <div
+          ref={refFree}
+          className="optionSelectBox"
+          onMouseEnter={() => handleMouseEnter(refFree)}
+          onMouseLeave={() => handleMouseLeave(refFree)}
+          style={{ width: "80%", height: "90%" }}
+        >
           <h2 className="selectBoxTitle">Free NFT for our followers</h2>
           <p className="selectBoxDescription">
             Our Twitter followers can claim a free NFT. See instructions above.
@@ -81,7 +117,13 @@ const Home = () => {
             Free NFT
           </Web3Button>
         </div>
-        <div className="optionSelectBox">
+        <div
+          className="optionSelectBox"
+          ref={refBuy}
+          onMouseEnter={() => handleMouseEnter(refBuy)}
+          onMouseLeave={() => handleMouseLeave(refBuy)}
+          style={{ width: "80%", height: "90%" }}
+        >
           <h2 className="selectBoxTitle">Purchase an NFT</h2>
           <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
           <Web3Button

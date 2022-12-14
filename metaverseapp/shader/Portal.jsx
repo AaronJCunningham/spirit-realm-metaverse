@@ -1,17 +1,24 @@
-import { Suspense, useState } from 'react';
-import { Sphere, OrbitControls, Box, useTexture, Environment, Plane } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { a as aw, useSpring as useSpringWeb } from '@react-spring/web';
-import { a as a3, useSpring as useSpringThree } from '@react-spring/three';
-import * as THREE from 'three';
+import { Suspense, useState } from "react";
+import {
+  Sphere,
+  OrbitControls,
+  Box,
+  useTexture,
+  Environment,
+  Plane,
+} from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { a as aw, useSpring as useSpringWeb } from "@react-spring/web";
+import { a as a3, useSpring as useSpringThree } from "@react-spring/three";
+import * as THREE from "three";
 
 // HSL values
 const options = [
-  [0, 100, 50],
-  [360, 100, 50],
-  [20, 100, 50],
-  [90, 100, 50],
-  [240, 100, 50],
+  [224, 100, 50],
+  [57, 100, 50],
+  [224, 100, 50],
+  [57, 100, 50],
+  [3, 100, 50],
 ];
 
 export default function Shader() {
@@ -21,7 +28,10 @@ export default function Shader() {
     config: { tension: 50 },
   });
   const springyGradient = hsl.to(
-    (h, s, l) => `radial-gradient(hsl(${h}, ${s * 0.7}%, ${l}%), hsl(${h},${s * 0.4}%, ${l * 0.2}%))`,
+    (h, s, l) =>
+      `radial-gradient(hsl(${h}, ${s * 0.7}%, ${l}%), hsl(${h},${s * 0.4}%, ${
+        l * 0.2
+      }%))`
   );
   return <Marble step={step} setStep={setStep} />;
 }
@@ -42,8 +52,9 @@ function Marble({ step, setStep }) {
         scale={scale}
         onPointerEnter={() => setHover(true)}
         onPointerOut={() => setHover(false)}
-        onPointerOver={() => setStep(step + 1)}>
-        <Plane args={[1.1, 1.45]} position={[-0.01, 0.6, 0]}>
+        onPointerOver={() => setStep(step + 1)}
+      >
+        <Plane args={[1.1, 1.6]} position={[-0.01, 0.6, 0]}>
           <MagicMarbleMaterial step={step} roughness={0.1} />
         </Plane>
       </a3.group>
@@ -59,8 +70,8 @@ function Marble({ step, setStep }) {
  */
 function MagicMarbleMaterial({ step, ...props }) {
   // Load the noise textures
-  const heightMap = useTexture('noise.jpg');
-  const displacementMap = useTexture('noise3D.jpg');
+  const heightMap = useTexture("noise.jpg");
+  const displacementMap = useTexture("noise3D.jpg");
   heightMap.minFilter = displacementMap.minFilter = THREE.NearestFilter;
   displacementMap.wrapS = displacementMap.wrapT = THREE.RepeatWrapping;
 
@@ -113,7 +124,7 @@ function MagicMarbleMaterial({ step, ...props }) {
         /* glsl */ `
         v_dir = position - cameraPosition; // Points from camera to vertex
         v_pos = position;
-        `,
+        `
     );
 
     // Add to top of fragment shader
@@ -188,7 +199,7 @@ function MagicMarbleMaterial({ step, ...props }) {
           }
           return mix(colorA, colorB, totalVolume);
         }
-      ` + match,
+      ` + match
     );
 
     shader.fragmentShader = shader.fragmentShader.replace(
@@ -199,7 +210,7 @@ function MagicMarbleMaterial({ step, ...props }) {
       
       vec3 rgb = marchMarble(rayOrigin, rayDir);
       vec4 diffuseColor = vec4(rgb, 1.);      
-      `,
+      `
     );
   };
 

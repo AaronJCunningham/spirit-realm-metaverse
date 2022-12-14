@@ -45,12 +45,12 @@ function Game() {
       <CameraController />
       <Stats />
       <Space />
-      <ambientLight intensity={0.5} />
-      <hemisphereLight intensity={0.5} color="#eacb6e" groundColor="blue" />
+      <ambientLight intensity={2} />
+      <hemisphereLight intensity={2} color="#eacb6e" groundColor="blue" />
       <spotLight
         castShadow
-        color="#edbf6f"
-        intensity={100}
+        color="#eacb6e"
+        intensity={55}
         position={[80, 50, -40]}
         angle={0.35}
         penumbra={1}

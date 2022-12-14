@@ -19,7 +19,7 @@ import { RemotePlayers } from "./remoteplayers/RemotePlayers";
 import { Chat } from "./chat/Chat";
 import Shader from "./shader/Portal";
 import { Ghost } from "./remoteplayers/Ghost10";
-import { PortalWorld } from "./test-assets/PortalWorld12";
+import { PortalWorld } from "./test-assets/Portalworld12";
 import { MetaMenu } from "./menu/MetaMenu";
 import { Instructions } from "./instructions/Instructions";
 

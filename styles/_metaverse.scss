@@ -1,0 +1,125 @@
+.canvas {
+  height: 100vh;
+}
+
+.chat_container {
+  position: absolute;
+  color: white;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10;
+  font-size: 0.8rem;
+  width: 300px;
+}
+
+.chat_tab {
+  background-color: rgba(248, 248, 248, 0.178);
+  border: rgba(248, 248, 248, 0.418) 1px solid;
+  border-radius: 4px 4px 0 0;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat_bg {
+  background-color: rgba(248, 248, 248, 0.178);
+  border: rgba(248, 248, 248, 0.418) 1px solid;
+  border-radius: 0 4px 4px 4px;
+}
+
+.chat_enter {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  padding-left: 3px;
+  outline: 0;
+  color: rgb(207, 207, 207);
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.individual_chat {
+  padding-left: 3px;
+  overflow-wrap: break-word;
+}
+
+.menu-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 20vw;
+  background-color: rgba(248, 248, 248, 0.178);
+  border: rgba(248, 248, 248, 0.418) 1px solid;
+}
+
+.card {
+  position: absolute;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(39, 39, 39, 0.548);
+  padding: 30px;
+  margin: 0 auto;
+  opacity: 0;
+  /* transform: translateX(15px); */
+  transition: opacity 1s ease, transform 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card.in.visible {
+  opacity: 1;
+  /* transform: translateX(0); */
+}
+
+.inner-menu-container {
+  background-color: black;
+  width: 60%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.color-picker-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-items-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
+  z-index: 2000;
+}
+
+.instructions-inner-container {
+  background-color: black;
+  width: 60%;
+  height: 60%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

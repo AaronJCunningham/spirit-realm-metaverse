@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsimone/smoothdamp": "^0.1.0",
+    "@hmans/controlfreak": "^0.2.0",
     "@next/font": "^13.0.6",
     "@react-three/drei": "^9.41.0",
-    "@react-three/fiber": "^8.9.1",
+    "@react-three/fiber": "^9.0.0-alpha.1",
     "@react-three/postprocessing": "^2.7.0",
     "@thirdweb-dev/auth": "^2.0.30",
     "@thirdweb-dev/react": "^3.6.0",
     "@thirdweb-dev/sdk": "^3.6.0",
+    "@xstate/react": "^3.0.1",
     "axios": "^1.2.0",
     "discord.js": "^14.6.0",
     "ethers": "^5.6.8",
@@ -28,7 +31,9 @@
     "react-icons": "^4.7.1",
     "react-share": "^4.4.1",
     "sass": "^1.56.1",
+    "socket.io-client": "^4.5.3",
     "three": "^0.146.0",
+    "xstate": "^4.35.0",
     "zustand": "^4.1.5"
   },
   "devDependencies": {

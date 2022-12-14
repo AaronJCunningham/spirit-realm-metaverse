@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+const SpiritRealmApp = dynamic(() => import("../../metaverseapp/SpiritRealm"), {
+  ssr: false,
+});
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -18,11 +23,8 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <div className="description">
-        welcome to the fuckshop
-        {isMobile && <p>SORRY DOESNT WORK ON MOBILE</p>}
-      </div>
-    </>
+    <div className="canvas">
+      <SpiritRealmApp />
+    </div>
   );
 }

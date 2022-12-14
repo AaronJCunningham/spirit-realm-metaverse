@@ -1,4 +1,4 @@
-import create from 'zustand';
+import create from "zustand";
 
 export const useChatFocus = create((set) => ({
   chatFocus: false,
@@ -6,11 +6,11 @@ export const useChatFocus = create((set) => ({
 }));
 
 export const useCustomColor = create((set) => ({
-  customColor: '',
+  customColor: "",
   setCustomColor: (customColor) => set({ customColor }),
 }));
 
 export const useCustomName = create((set) => ({
-  userName: '',
+  userName: "",
   setUserName: (userName) => set({ userName }),
 }));

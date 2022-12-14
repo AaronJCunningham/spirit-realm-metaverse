@@ -1,20 +1,21 @@
-import { useRef, useState } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { SinglePlayer } from './SinglePlayer';
+import { useRef, useState } from "react";
+import { useFrame } from "@react-three/fiber";
+import { SinglePlayer } from "./SinglePlayer";
 
-import * as THREE from 'three';
-import socket from '../socketUtlities/socketConnection';
-import { useEffect } from 'react';
+import * as THREE from "three";
+import socket from "../socketUtlities/socketConnection";
+import { useEffect } from "react";
 
 export const RemotePlayers = () => {
-  const [remoteData, setRemoteData] = useState([{ x: 0, y: 0, z: 0, id: 'iug', username: 'Shiloh', color: '' }]);
+  const [remoteData, setRemoteData] = useState([
+    { x: 0, y: 0, z: 0, id: "iug", username: "Shiloh", color: "" },
+  ]);
 
   const id = socket.id;
 
   useEffect(() => {
-    socket.on('remoteData', (data) => {
+    socket.on("remoteData", (data) => {
       setRemoteData(data);
-      console.log(data);
     });
   }, []);
   // console.log('remoteplayers', id);

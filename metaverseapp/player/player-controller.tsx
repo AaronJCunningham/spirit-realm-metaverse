@@ -1,22 +1,29 @@
-import { Stages, useUpdate } from '@react-three/fiber';
-import { useCameraController } from '../camera/stores/camera-store';
-import { CharacterController, CharacterControllerProps } from '../character/character-controller';
-import { Falling, FallingProps } from '../character/modifiers/falling';
-import { Gravity, GravityProps } from '../character/modifiers/gravity';
-import { Jump, JumpProps } from '../character/modifiers/jump';
-import { Walking, WalkingProps, WALK_SPEED } from '../character/modifiers/walking';
-import { useCharacterController } from '../character/stores/character-store';
-import { useInputs } from '../input/input-controller';
-import { useEffect, useState } from 'react';
-import socket from '../socketUtlities/socketConnection';
-import * as THREE from 'three';
-import { useChatFocus } from '../store/store';
+import { Stages, useUpdate } from "@react-three/fiber";
+import { useCameraController } from "../camera/stores/camera-store";
+import {
+  CharacterController,
+  CharacterControllerProps,
+} from "../character/character-controller";
+import { Falling, FallingProps } from "../character/modifiers/falling";
+import { Gravity, GravityProps } from "../character/modifiers/gravity";
+import { Jump, JumpProps } from "../character/modifiers/jump";
+import {
+  Walking,
+  WalkingProps,
+  WALK_SPEED,
+} from "../character/modifiers/walking";
+import { useCharacterController } from "../character/stores/character-store";
+import { useInputs } from "../input/input-controller";
+import { useEffect, useState } from "react";
+import socket from "../socketUtlities/socketConnection";
+import * as THREE from "three";
+import { useChatFocus } from "../store/MetaStore";
 
 type PlayerControllerProps = CharacterControllerProps &
-  Omit<GravityProps, 'alwaysOn'> &
-  Omit<JumpProps, 'jump'> &
-  Omit<WalkingProps, 'movement' | 'speed'> &
-  Omit<FallingProps, 'movement' | 'speed'> & {
+  Omit<GravityProps, "alwaysOn"> &
+  Omit<JumpProps, "jump"> &
+  Omit<WalkingProps, "movement" | "speed"> &
+  Omit<FallingProps, "movement" | "speed"> & {
     gravityAlwaysOn?: boolean;
     walkSpeed?: number;
     airControl?: number;
@@ -36,7 +43,10 @@ export function PlayerController({
     move: new THREE.Vector2(),
   }));
 
-  const [chatFocus, setChatFocus] = useChatFocus((state) => [state.chatFocus, state.setChatFocus]);
+  const [chatFocus, setChatFocus] = useChatFocus((state) => [
+    state.chatFocus,
+    state.setChatFocus,
+  ]);
   const character = useCharacterController((state) => state.character);
   const setTarget = useCameraController((state) => state.setTarget);
 
@@ -48,9 +58,16 @@ export function PlayerController({
   useUpdate(() => {
     if (character && character.position.y < -10) {
       if (props.position) {
-        if (Array.isArray(props.position)) character.position.set(...props.position);
-        if (props.position instanceof THREE.Vector3) character.position.copy(props.position);
-        if (typeof props.position === 'number') character.position.set(props.position, props.position, props.position);
+        if (Array.isArray(props.position))
+          character.position.set(...props.position);
+        if (props.position instanceof THREE.Vector3)
+          character.position.copy(props.position);
+        if (typeof props.position === "number")
+          character.position.set(
+            props.position,
+            props.position,
+            props.position
+          );
       } else {
         character.position.set(0, 0.2, 0);
       }
@@ -87,7 +104,8 @@ export function PlayerController({
       groundDetectionOffset={props.groundDetectionOffset}
       capsule={props.capsule}
       rotateTime={props.rotateTime}
-      slopeLimit={props.slopeLimit}>
+      slopeLimit={props.slopeLimit}
+    >
       {children}
       <Walking movement={() => store.walk} speed={walkSpeed} />
       <Falling movement={() => store.walk} speed={walkSpeed * airControl} />

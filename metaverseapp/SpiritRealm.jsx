@@ -19,7 +19,7 @@ import { RemotePlayers } from "./remoteplayers/RemotePlayers";
 import { Chat } from "./chat/Chat";
 import Shader from "./shader/Portal";
 import { Ghost } from "./remoteplayers/Ghost10";
-import { PortalWorld } from "./test-assets/Portalworld12";
+import { PortalWorld } from "./test-assets/Portalworld13";
 import { MetaMenu } from "./menu/MetaMenu";
 import { Instructions } from "./instructions/Instructions";
 
@@ -39,7 +39,7 @@ function Game() {
       <Collider autoUpdate debug>
         <PortalWorld />
       </Collider>
-      <PlayerController debug={true}>
+      <PlayerController>
         <Ghost rotation={[0, -Math.PI, 0]} />
       </PlayerController>
       <CameraController />
@@ -66,7 +66,7 @@ export default function SpiritRealm() {
     <>
       <Chat />
       <MetaMenu />
-      <Instructions />
+      {/* <Instructions /> */}
       <Canvas shadows gl={{ physicallyCorrectLights: true }}>
         <StrictMode>
           <Game />

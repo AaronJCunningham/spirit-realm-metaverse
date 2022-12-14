@@ -1,20 +1,31 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import socket from '../socketUtlities/socketConnection';
-import { useChatFocus } from '../store/store';
+import { useEffect } from "react";
+import { useState } from "react";
+import socket from "../socketUtlities/socketConnection";
+import { useChatFocus, useCustomName } from "../store/MetaStore";
 
 export const Chat = () => {
   const [showChat, setShowChat] = useState(false);
-  const [chat, setChat] = useState('');
-  const [remoteData, setRemoteData] = useState([{ x: 0, y: 0, z: 0, id: 'iug' }]);
-  const [input, setInput] = useState('');
+  const [chat, setChat] = useState("");
+  const [remoteData, setRemoteData] = useState([
+    { x: 0, y: 0, z: 0, id: "iug" },
+  ]);
+  const [input, setInput] = useState("");
 
   const [old, setOld] = useState([]);
 
-  const [chatFocus, setChatFocus] = useChatFocus((state) => [state.chatFocus, state.setChatFocus]);
+  const [chatFocus, setChatFocus] = useChatFocus((state) => [
+    state.chatFocus,
+    state.setChatFocus,
+  ]);
+  const [userName, setUserName] = useCustomName((state) => [
+    state.userName,
+    state.setUserName,
+  ]);
+
+  console.log("chat name ", userName);
 
   useEffect(() => {
-    socket.on('chat', (data) => {
+    socket.on("chat", (data) => {
       setChat(data);
     });
   }, []);
@@ -32,10 +43,13 @@ export const Chat = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(input);
-    socket.emit('chat', { id: id, message: input });
-    const el = document.getElementById('chat');
+    socket.emit("chat", {
+      id: id,
+      message: `${userName ? userName : "Shiloh"}: ${input}`,
+    });
+    const el = document.getElementById("chat");
     el.blur();
-    setInput('');
+    setInput("");
   };
 
   // note
@@ -66,7 +80,8 @@ export const Chat = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onFocus={() => setChatFocus(true)}
-                onBlur={() => setChatFocus(false)}></input>
+                onBlur={() => setChatFocus(false)}
+              ></input>
             </form>
           </div>
         </div>

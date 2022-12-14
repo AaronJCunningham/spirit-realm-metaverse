@@ -3,7 +3,7 @@ import { CharacterControllerContext } from "../contexts/character-controller-con
 import { useCallback, useContext, useLayoutEffect, useState } from "react";
 import { GRAVITY } from "./gravity";
 import { createModifier } from "./use-modifiers";
-import { useChatFocus } from "../../store/store";
+import { useChatFocus } from "../../store/MetaStore";
 
 export type JumpProps = {
   jumpSpeed?: number;

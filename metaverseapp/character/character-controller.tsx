@@ -22,7 +22,7 @@ import { VolumeDebug } from "./bounding-volume/volume-debug";
 import { SmoothDamp } from "@gsimone/smoothdamp";
 import { useInputs } from "../input/input-controller";
 import socket from "../socketUtlities/socketConnection";
-import { useCustomColor } from "../store/store";
+import { useCustomColor } from "../store/MetaStore";
 
 export type CharacterControllerProps = {
   children: React.ReactNode;

@@ -6,7 +6,7 @@ export const useChatFocus = create((set) => ({
 }));
 
 export const useCustomColor = create((set) => ({
-  customColor: "",
+  customColor: "#3191E0",
   setCustomColor: (customColor) => set({ customColor }),
 }));
 

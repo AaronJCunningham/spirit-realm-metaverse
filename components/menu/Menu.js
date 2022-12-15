@@ -60,7 +60,15 @@ const Menu = ({ width }) => {
                 gsap.to(circleRef.current, { fill: "#A9A9A9" })
               }
             >
-              METAVERSE
+              SPIRIT REALM <sup>BETA</sup>
+            </li>
+            <li
+              onClick={() => handleLink("/story")}
+              onMouseEnter={() =>
+                gsap.to(circleRef.current, { fill: "#808080" })
+              }
+            >
+              MOVIE
             </li>
             <li
               onClick={() => handleLink("/mint")}
@@ -70,14 +78,6 @@ const Menu = ({ width }) => {
             >
               MINT
             </li>
-            <li
-              onClick={() => handleLink("/story")}
-              onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#808080" })
-              }
-            >
-              STORY
-            </li>
 
             <li
               onClick={() => handleLink("/about")}
@@ -85,10 +85,16 @@ const Menu = ({ width }) => {
                 gsap.to(circleRef.current, { fill: "#C0C0C0" })
               }
             >
-              ABOUT
+              INFO
             </li>
             <li>
-              <div className="social-menu-container" onClick={handleSocial}>
+              <div
+                className="social-menu-container"
+                onClick={handleSocial}
+                onMouseEnter={() =>
+                  gsap.to(circleRef.current, { fill: "#808080" })
+                }
+              >
                 <a
                   className="a-menu"
                   href="https://twitter.com/xelevendottech"

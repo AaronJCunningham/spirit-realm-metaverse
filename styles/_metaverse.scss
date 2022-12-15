@@ -104,6 +104,7 @@
   height: 70%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .color-picker-container {
@@ -112,29 +113,42 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  p {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .menu-items-container {
   color: white;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  width: 100%;
+}
+.menu-href {
+  a:hover {
+    color: $accent-color;
+    cursor: pointer;
+  }
 }
 
 .menu-close-button-container {
+  width: 100%;
+
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 20%;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .menu-close-button {
-  align-self: flex-end;
-  height: 100%;
   padding: 10px;
   cursor: pointer;
   font-size: 2rem;
+  display: flex;
+  justify-self: flex-end;
+  align-items: flex-end;
 }
 
 .username-selection-container {
@@ -143,10 +157,11 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  position: relative;
+
   padding: 15px 0 0;
   margin: 0 auto;
-  width: 80%;
+  width: 95%;
+  height: 100%;
 }
 
 .instructions-menu-container {
@@ -154,16 +169,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 90%;
+  width: 100%;
   h4 {
     font-weight: 200;
-    margin: 0.2rem;
-    margin-top: 2rem;
+    margin: 0.1rem 0;
+    margin-top: 0.8rem;
   }
   p {
-    font-size: 1rem;
-    margin: 0.2rem;
+    font-size: 0.8rem;
+    margin: 0.1rem 0;
   }
+}
+.br {
+  color: $light-color;
+  border-bottom: 0.5px solid $light-color;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
 .instructions-container {
@@ -193,7 +214,12 @@
 
 .input-container {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .input-container label {
   position: absolute;
@@ -212,6 +238,7 @@
   padding: 8px 0 5px 0;
   font-size: 1rem;
   color: #fff;
+  margin-right: 1rem;
 }
 .input-container input:focus {
   border: none;
@@ -222,7 +249,7 @@
 .input-container input:focus ~ label,
 .input-container input:valid ~ label {
   top: -12px;
-  font-size: 12px;
+  font-size: 1rem;
 }
 
 .btn {
@@ -231,10 +258,11 @@
   outline: none;
   border: 0;
   color: #fff;
-  padding: 10px 20px;
+  padding: 8px 15px;
   text-transform: uppercase;
   margin-top: 0;
   border-radius: 2px;
   cursor: pointer;
   position: relative;
+  font-size: 0.8rem;
 }

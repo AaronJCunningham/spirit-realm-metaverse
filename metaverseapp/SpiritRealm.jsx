@@ -43,7 +43,7 @@ function Game() {
         <Ghost rotation={[0, -Math.PI, 0]} />
       </PlayerController>
       <CameraController />
-      <Stats />
+      {/* <Stats /> */}
       <Space />
       <ambientLight intensity={2} />
       <hemisphereLight intensity={2} color="#eacb6e" groundColor="blue" />

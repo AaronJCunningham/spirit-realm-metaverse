@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { SketchPicker } from "react-color";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import Link from "next/link";
 
 import useMountTransition from "../hooks/useMountTrainsition";
 
@@ -87,7 +88,7 @@ export const MetaMenu = () => {
                 </div>
               </div>
               <div className="username-selection-container">
-                <div class="input-container">
+                <div className="input-container">
                   <input
                     type="text"
                     name="name"
@@ -95,17 +96,41 @@ export const MetaMenu = () => {
                     value={inputValue}
                     autoComplete="off"
                   />
-                  <label for="name">Choose A User Name</label>
+                  <label id="name">Choose A User Name</label>
+                  <button className="btn" onClick={handleSubmit}>
+                    Change
+                  </button>
                 </div>
-                <button className="btn" onClick={handleSubmit}>
-                  Change
-                </button>
+
                 <div className="instructions-menu-container">
+                  <div className="br" />
                   <h4>Instructions:</h4>
                   <p>Use A, W, S, D to move</p>
                   <p>Click and drag mouse to move camera</p>
                   <p>Space Bar to Jump</p>
                 </div>
+                {/* <div className="instructions-menu-container">
+                  <div className="br" />
+                  <h4>Info:</h4>
+                  <p>
+                    To claim a free NFT visit our{" "}
+                    <a className="menu-href">
+                      <Link href="/mint">MINT </Link>
+                    </a>
+                    page.
+                  </p>
+                  <p>
+                    To vote on what happens next in our movie & metaverse join
+                    our Discord and Twitter.
+                  </p>
+                  <p>
+                    Copyright{" "}
+                    <a className="menu-href" href="https://xeleven.tech">
+                      XELEVEN{" "}
+                    </a>
+                    2022
+                  </p>
+                </div> */}
               </div>
             </div>
           </div>

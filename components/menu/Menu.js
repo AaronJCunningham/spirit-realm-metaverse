@@ -63,7 +63,7 @@ const Menu = ({ width }) => {
               SPIRIT REALM <sup>BETA</sup>
             </li>
             <li
-              onClick={() => handleLink("/story")}
+              onClick={() => handleLink("/movie")}
               onMouseEnter={() =>
                 gsap.to(circleRef.current, { fill: "#808080" })
               }

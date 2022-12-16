@@ -4,7 +4,7 @@ import { useContext, useLayoutEffect } from "react";
 import * as THREE from "three";
 import { createModifier } from "./use-modifiers";
 
-export const WALK_SPEED = 2;
+export const WALK_SPEED = 3;
 
 export type WalkingProps = {
   speed?: number;

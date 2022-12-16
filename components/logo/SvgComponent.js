@@ -16,18 +16,7 @@ const SvgComponent = (props) => (
       style={{
         fill: "#fff",
       }}
-    >
-      <animate
-        id="project_anim1"
-        attributeName="fill"
-        from="#fff"
-        to="hsla(210 60% 100% / 10%)"
-        begin="0s"
-        dur="5s"
-        fill="freeze"
-        repeatCount="indefinite"
-      />
-    </path>
+    ></path>
   </svg>
 );
 

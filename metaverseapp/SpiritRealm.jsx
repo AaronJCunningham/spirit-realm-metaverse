@@ -1,5 +1,5 @@
 import { Canvas, Stages } from "@react-three/fiber";
-import { Stats, Loader } from "@react-three/drei";
+import { Stats, Loader, useProgress } from "@react-three/drei";
 import {
   StrictMode,
   Suspense,
@@ -19,14 +19,13 @@ import { RemotePlayers } from "./remoteplayers/RemotePlayers";
 import { Chat } from "./chat/Chat";
 import Shader from "./shader/Portal";
 import { Ghost } from "./remoteplayers/Ghost10";
-import { PortalWorld } from "./test-assets/Portalworld13";
+import { PortalWorld } from "./test-assets/Portalworld14";
 import { MetaMenu } from "./menu/MetaMenu";
-import { Instructions } from "./instructions/Instructions";
+import { TextForMetaPage } from "./loading/TextForMetaPage";
 
 const FIXED_STEP = 1 / 60;
 
 function Game() {
-  // Set fixed step size.
   useLayoutEffect(() => {
     Stages.Fixed.fixedStep = FIXED_STEP;
   }, []);
@@ -45,34 +44,35 @@ function Game() {
       <CameraController />
       {/* <Stats /> */}
       <Space />
-      <ambientLight intensity={2} />
-      <hemisphereLight intensity={2} color="#eacb6e" groundColor="blue" />
-      <spotLight
-        castShadow
-        color="#eacb6e"
-        intensity={55}
-        position={[80, 50, -40]}
-        angle={0.35}
-        penumbra={1}
-        shadow-mapSize={[1024, 1024]}
-        shadow-bias={-0.00001}
-      />
+      <ambientLight intensity={0.4} />
+      <hemisphereLight intensity={1.2} color="#eacb6e" groundColor="blue" />
     </Suspense>
   );
 }
 
 export default function SpiritRealm() {
+  const [loaded, setLoaded] = useState(false);
+
+  const { progress } = useProgress();
+
+  useEffect(() => {
+    if (progress === 100) {
+      setLoaded(true);
+    } else {
+      setLoaded(false);
+    }
+  }, [progress]);
+
   return (
     <>
       <Chat />
       <MetaMenu />
-      {/* <Instructions /> */}
+      {!loaded && <TextForMetaPage progress={progress} />}
       <Canvas shadows gl={{ physicallyCorrectLights: true }}>
         <StrictMode>
           <Game />
         </StrictMode>
       </Canvas>
-      <Loader />
     </>
   );
 }

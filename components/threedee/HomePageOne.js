@@ -28,7 +28,7 @@ const HomePageOne = ({ isMobile }) => {
 
   return (
     <div className="canvas">
-      <TextForLandingPage progress={progress} />
+      {/* <TextForLandingPage progress={progress} /> */}
       <Canvas
         camera={{
           fov: 15,
@@ -37,7 +37,7 @@ const HomePageOne = ({ isMobile }) => {
           position: isMobile ? [1, -0.1, 2.9] : [1, -0.3, 2.9],
         }}
       >
-        <Suspense fallback={null}>
+        <Suspense>
           <Effects />
           <Lighting />
           <BallLight />

@@ -8,18 +8,16 @@ import { useFrame } from "@react-three/fiber";
 
 export function Shiloh(props) {
   const { scene } = useGLTF("/shiloh06.glb");
-  console.log(scene);
 
   const forest = scene.getObjectByName("forest_still");
 
-  const forestRef = useRef();
   const shilohRef = useRef();
 
   useFrame((state, delta) => {
     shilohRef.current.position.y = -1.5;
 
-    forestRef.current.position.y = 1;
-    forestRef.current.position.z = -2.5;
+    forest.position.y = 2.2;
+    forest.position.z = -2.5;
 
     const t = state.clock.getElapsedTime();
     const { mouse } = state;
@@ -28,7 +26,6 @@ export function Shiloh(props) {
   });
   return (
     <>
-      <primitive object={forest} ref={forestRef} />
       <group {...props} dispose={null} ref={shilohRef}>
         <primitive object={scene} />
       </group>

@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { useAddress, useContract, Web3Button } from "@thirdweb-dev/react";
 import { SignedPayload721WithQuantitySignature } from "@thirdweb-dev/sdk";
 
-const signatureDropAddress = process.env.CONTRACT_ADDRESS;
+const signatureDropAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
 
 const Home = () => {
   const refFree = useRef();

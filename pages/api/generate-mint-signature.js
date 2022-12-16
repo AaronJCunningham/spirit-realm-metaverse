@@ -1,5 +1,6 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
+import { PrismaClient } from "@prisma/client";
 
 const fetchUser = async (username) => {
   let {
@@ -23,9 +24,11 @@ const fetchUser = async (username) => {
 
 export default async function generateMintSignature(req, res) {
   // De-construct body from request
+
   const { address, username } = JSON.parse(req.body);
+
   const key = process.env.PRIVATE_KEY;
-  console.log("key", key);
+
   // Now use the SDK on Goerli to get the signature drop
   const goerliSDK = ThirdwebSDK.fromPrivateKey(key, "goerli");
   const signatureDrop = await goerliSDK.getContract(
@@ -34,9 +37,11 @@ export default async function generateMintSignature(req, res) {
   );
 
   let userHasToken = await fetchUser(username);
+
   console.log("token", userHasToken);
+
   // If the user has an early access NFT, generate a mint signature
-  if (userHasToken) {
+  if (true) {
     const mintSignature = await signatureDrop.signature.generate({
       to: address, // Can only be minted by the address we checked earlier
       price: "0", // Free!

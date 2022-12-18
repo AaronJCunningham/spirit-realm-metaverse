@@ -1,13 +1,23 @@
 import { useRef, useState } from "react";
 import { gsap } from "gsap";
-import { useAddress, useContract, Web3Button } from "@thirdweb-dev/react";
-import { SignedPayload721WithQuantitySignature } from "@thirdweb-dev/sdk";
+import {
+  useAddress,
+  useContract,
+  Web3Button,
+  useNFT,
+} from "@thirdweb-dev/react";
+
+import { NFTPopUp } from "./NFTPopUp";
 
 const signatureDropAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
 
 const Home = () => {
   const refFree = useRef();
   const refBuy = useRef();
+
+  const [username, setUserName] = useState("");
+  const [tokenId, setTokenId] = useState(null);
+  const [claimedNFT, setClaimedNFT] = useState(null);
 
   const handleMouseEnter = (ref) => {
     gsap.to(ref.current, {
@@ -26,6 +36,10 @@ const Home = () => {
 
   const address = useAddress();
 
+  const handleUserNameInput = (e) => {
+    setUserName(e.target.value);
+  };
+
   const { contract: signatureDrop } = useContract(
     signatureDropAddress,
     "signature-drop"
@@ -34,6 +48,11 @@ const Home = () => {
   async function claim() {
     try {
       const tx = await signatureDrop?.claim(1);
+
+      if (tx) {
+        console.log("TX", tx[0]?.id.toNumber());
+        setTokenId(tx[0]?.id.toNumber());
+      }
       alert(`Succesfully minted NFT!`);
     } catch (error) {
       alert(error?.message);
@@ -45,30 +64,30 @@ const Home = () => {
       method: "POST",
       body: JSON.stringify({
         address: address,
-        username: "whosthereplease",
+        username: username,
       }),
     });
 
-    console.log(signedPayloadReq);
-
     if (signedPayloadReq.status === 400) {
       alert(
-        "Looks like you don't own an early access NFT :( You don't qualify for the free mint."
+        "Whoops, something went wrong. Eitehr you do not follow us, or you already claimed an NFT. If this is a mistake please contact us on Discord :)"
       );
       return;
     } else {
       try {
         const signedPayload = await signedPayloadReq.json();
-        console.log(signedPayload);
 
         const nft = await signatureDrop?.signature.mint(signedPayload);
-
-        alert(`Succesfully minted NFT!`);
+        if (nft) {
+          setTokenId(nft?.id.toNumber());
+        }
       } catch (error) {
         alert(error?.message);
       }
     }
   }
+
+  let fetchedNFT = useNFT(signatureDrop, 20);
 
   return (
     <div className="page-container">
@@ -105,10 +124,19 @@ const Home = () => {
           style={{ width: "80%", height: "90%" }}
         >
           <h2 className="selectBoxTitle">Free NFT for our followers</h2>
-          <p className="selectBoxDescription">
-            Our Twitter followers can claim a free NFT. See instructions above.
-          </p>
 
+          <div className="username-selection-container-mint">
+            <div className="input-container">
+              <input
+                className="mint-input-text"
+                type="text"
+                name="username"
+                value={username}
+                onChange={handleUserNameInput}
+                placeholder={"Enter Your Twitter Name! (example @Aaron_1337)"}
+              />
+            </div>
+          </div>
           <Web3Button
             contractAddress={signatureDropAddress}
             action={() => claimWithSignature()}
@@ -135,6 +163,7 @@ const Home = () => {
           </Web3Button>
         </div>
       </div>
+      {tokenId !== null && <NFTPopUp tokenId={tokenId} />}
     </div>
   );
 };

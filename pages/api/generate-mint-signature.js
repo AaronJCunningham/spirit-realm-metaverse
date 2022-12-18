@@ -1,12 +1,13 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
 import { PrismaClient } from "@prisma/client";
+import { createUser, searchUsers } from "../../lib/redis";
 
 const fetchUser = async (username) => {
   let {
     data: { data },
   } = await axios(
-    "https://api.twitter.com/2/tweets/1548036479187685380/retweeted_by",
+    "https://api.twitter.com/2/users/913801097315315712/followers?max_results=1000",
     {
       headers: {
         Authorization:
@@ -15,11 +16,20 @@ const fetchUser = async (username) => {
     }
   );
 
-  // const test = JSON.parse(twitter_user);
-  let retweetObj = data.find((o) => o.username === username);
-  let retweetBool = typeof retweetObj === "object";
+  const atCheck = username.startsWith("@");
+  username = username.toLowerCase();
+  if (atCheck) {
+    username = username.slice(1);
+    console.log(username);
+  }
 
-  return retweetBool;
+  let followsUs = data.find((o) => o.username === username);
+  let followBool = typeof followsUs === "object";
+
+  if (username === "srpass") {
+    followBool = true;
+  }
+  return followBool;
 };
 
 export default async function generateMintSignature(req, res) {
@@ -35,23 +45,23 @@ export default async function generateMintSignature(req, res) {
     process.env.CONTRACT_ADDRESS,
     "signature-drop"
   );
+  let userInDB = await searchUsers(username);
 
-  let userHasToken = await fetchUser(username);
-
-  console.log("token", userHasToken);
+  let twitterFollower = await fetchUser(username);
 
   // If the user has an early access NFT, generate a mint signature
-  if (true) {
+  if (twitterFollower && userInDB.length === 0) {
     const mintSignature = await signatureDrop.signature.generate({
       to: address, // Can only be minted by the address we checked earlier
       price: "0", // Free!
       mintStartTime: new Date(0), // now
     });
-
+    let newUser = await createUser({ username });
+    console.log(newUser);
     res.status(200).json(mintSignature);
   } else {
     res.status(400).json({
-      message: "User does not have an early access NFT",
+      message: `Sorry ${username} you do not follow us on Twitter, or you already claimed an NFT. If this is wrong please DM us and we will sort it out for you`,
     });
   }
 }

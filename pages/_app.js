@@ -9,14 +9,7 @@ const activeChainId = ChainId.Goerli;
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThirdwebProvider
-      desiredChainId={activeChainId}
-      authConfig={{
-        domain: "example.com",
-        authUrl: "/api/auth",
-        loginRedirect: "/",
-      }}
-    >
+    <ThirdwebProvider desiredChainId={activeChainId}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const signatureDropAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
 
-export const NFTPopUp = ({ tokenId }) => {
+const NFTPopUp = ({ tokenId }) => {
   const { contract: signatureDrop } = useContract(
     signatureDropAddress,
     "signature-drop"
@@ -40,3 +40,5 @@ export const NFTPopUp = ({ tokenId }) => {
     )
   );
 };
+
+export default NFTPopUp;

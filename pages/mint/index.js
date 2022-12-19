@@ -7,7 +7,7 @@ import {
   useNFT,
 } from "@thirdweb-dev/react";
 
-import NFTPopUp from "./NFTPopUp";
+import NFTPopUp from "../../components/mint/NFTPopUp";
 
 const signatureDropAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
 

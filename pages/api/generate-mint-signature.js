@@ -1,6 +1,5 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
-import { PrismaClient } from "@prisma/client";
 import { createUser, searchUsers } from "../../lib/redis";
 
 const fetchUser = async (username) => {

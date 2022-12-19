@@ -17,28 +17,26 @@ const NFTPopUp = ({ tokenId }) => {
     }, 1500);
   }, []);
 
-  return (
-    data && (
-      <div id="reveal" className="nft-reveal-container">
-        <div className="nft-reveal-image">
-          <h2>CONGRATULATIONS!!! </h2>
-          <h3>You got {data.metadata.name}</h3>
-          <p>
-            Don't forget to join our{" "}
-            <a
-              href="https://discord.gg/Th8WjmbESZ"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Discord
-            </a>{" "}
-            so you can vote on what happens next in the metaverse & movie!
-          </p>
-          <ThirdwebNftMedia metadata={data.metadata} className="image" />
-        </div>
+  return data ? (
+    <div id="reveal" className="nft-reveal-container">
+      <div className="nft-reveal-image">
+        <h2>CONGRATULATIONS!!! </h2>
+        <h3>You got {data.metadata.name}</h3>
+        <p>
+          Don't forget to join our{" "}
+          <a
+            href="https://discord.gg/Th8WjmbESZ"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Discord
+          </a>{" "}
+          so you can vote on what happens next in the metaverse & movie!
+        </p>
+        <ThirdwebNftMedia metadata={data.metadata} className="image" />
       </div>
-    )
-  );
+    </div>
+  ) : null;
 };
 
 export default NFTPopUp;

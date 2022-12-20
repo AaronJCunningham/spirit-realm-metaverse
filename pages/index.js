@@ -4,6 +4,7 @@ import { Loader } from "../components/threedee/Loader";
 import { useProgressStore } from "../store";
 import Menu from "../components/menu/Menu";
 import { useIsMobile } from "../hooks/useIsMobile";
+import MetaDataHeader from "../components/metaheader/MetaDataHeader";
 
 const HomePageOne = dynamic(
   () => import("../components/threedee/HomePageOne"),
@@ -39,7 +40,7 @@ const Home = () => {
   return (
     <>
       {/* <Loader progress={progressStore} /> */}
-
+      <MetaDataHeader />
       <div className="main-container">
         <div className="pageone-container">
           <HomePageOne isMobile={isMobile} />

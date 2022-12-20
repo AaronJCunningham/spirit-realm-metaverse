@@ -1,7 +1,7 @@
 import { ThirdwebNftMedia, useNFT, useContract } from "@thirdweb-dev/react";
 import { useEffect } from "react";
 
-const signatureDropAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
+const signatureDropAddress = "0xb63B50730cd9b6444469d98e6cd952a6d4cA11Be";
 
 const NFTPopUp = ({ tokenId }) => {
   const { contract: signatureDrop } = useContract(

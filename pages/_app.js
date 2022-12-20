@@ -1,6 +1,8 @@
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import "../styles/index.scss";
 import Head from "next/head";
+
+import { CookieAccept } from "../components/cookies/CookieAccept";
 import Menu from "../components/menu/Menu";
 import Logo from "../components/logo/Logo";
 
@@ -9,18 +11,22 @@ const activeChainId = ChainId.Goerli;
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThirdwebProvider desiredChainId={activeChainId}>
+    <>
+      {" "}
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
-          http-equiv="Content-Security-Policy"
+          httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
       </Head>
+      <CookieAccept />
       <Logo />
       <Menu />
-      <Component {...pageProps} />
-    </ThirdwebProvider>
+      <ThirdwebProvider desiredChainId={activeChainId}>
+        <Component {...pageProps} />
+      </ThirdwebProvider>
+    </>
   );
 }
 

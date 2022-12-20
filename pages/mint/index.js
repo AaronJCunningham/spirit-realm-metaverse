@@ -8,8 +8,12 @@ import {
 } from "@thirdweb-dev/react";
 
 import NFTPopUp from "../../components/mint/NFTPopUp";
+import MetaDataHeader from "../../components/metaheader/MetaDataHeader";
 
-const signatureDropAddress = "0xc92cEe868e90eC2053D5C80571a98eac8401c1AF";
+const signatureDropAddress = "0x8e6069D2A11735002914aEd66C2AA5B28FeaAad5";
+
+const desc =
+  "We created a collection of 5000 PFP NFTs, each of which represents a unique version of a character from our movie.";
 
 const Home = () => {
   const refFree = useRef();
@@ -48,7 +52,7 @@ const Home = () => {
   async function claim() {
     try {
       const tx = await signatureDrop?.claim(1);
-
+      console.log("tx", tx);
       if (tx) {
         console.log("TX", tx[0]?.id.toNumber());
         setTokenId(tx[0]?.id.toNumber());
@@ -76,13 +80,17 @@ const Home = () => {
     } else {
       try {
         const signedPayload = await signedPayloadReq.json();
-
+        console.log("signed", signedPayload);
+        console.log("sig", signatureDrop);
         const nft = await signatureDrop?.signature.mint(signedPayload);
+        // console.log(nft);
+
         if (nft) {
           setTokenId(nft?.id.toNumber());
         }
       } catch (error) {
-        alert(error?.message);
+        alert("error", error?.message);
+        console.log(error);
       }
     }
   }
@@ -90,81 +98,84 @@ const Home = () => {
   let fetchedNFT = useNFT(signatureDrop, 20);
 
   return (
-    <div className="page-container">
-      <h1 className="h1-mint">5K NFTS</h1>
-      <p className="description">
-        Only the owners of our NFT collection can vote on what happens next in
-        our movie. Luckily for you, these NFTs are free to obtain. In addition
-        to giving you the ability to participate in the decision-making process
-        for the movie, owning an NFT will also unlock a range of features on our
-        roadmap. These features will be available exclusively to NFT owners, so
-        be sure to get yours today.
-      </p>
-      <div className="list-container">
-        <h4>It's super simple to claim a free NFT</h4>
-        <ul className="ul-mint">
-          <li>Follow us on Twitter</li>
-          <li>Retweet our pinned post</li>
-          <li>Claim a free NFT</li>
-        </ul>
-      </div>
-      <p className="description">
-        You are only eligible to receive one free NFT per wallet. If you would
-        like to purchase additional NFTs, please use the Buy NFT section below.
-        This will allow you to expand your collection and unlock even more
-        features on our roadmap. Thank you for your interest in our NFT
-        collection!
-      </p>
-      <div className="nftBoxGrid">
-        <div
-          ref={refFree}
-          className="optionSelectBox"
-          onMouseEnter={() => handleMouseEnter(refFree)}
-          onMouseLeave={() => handleMouseLeave(refFree)}
-          style={{ width: "80%", height: "90%" }}
-        >
-          <h2 className="selectBoxTitle">Free NFT for our followers</h2>
+    <>
+      <MetaDataHeader title={"Mint"} content={desc} />
+      <div className="page-container">
+        <h1 className="h1-mint">5K NFTS</h1>
+        <p className="description">
+          Only the owners of our NFT collection can vote on what happens next in
+          our movie. Luckily for you, these NFTs are free to obtain. In addition
+          to giving you the ability to participate in the decision-making
+          process for the movie, owning an NFT will also unlock a range of
+          features on our roadmap. These features will be available exclusively
+          to NFT owners, so be sure to get yours today.
+        </p>
+        <div className="list-container">
+          <h4>It's super simple to claim a free NFT</h4>
+          <ul className="ul-mint">
+            <li>Follow us on Twitter</li>
+            <li>Retweet our pinned post</li>
+            <li>Claim a free NFT</li>
+          </ul>
+        </div>
+        <p className="description">
+          You are only eligible to receive one free NFT per wallet. If you would
+          like to purchase additional NFTs, please use the Buy NFT section
+          below. This will allow you to expand your collection and unlock even
+          more features on our roadmap. Thank you for your interest in our NFT
+          collection!
+        </p>
+        <div className="nftBoxGrid">
+          <div
+            ref={refFree}
+            className="optionSelectBox"
+            onMouseEnter={() => handleMouseEnter(refFree)}
+            onMouseLeave={() => handleMouseLeave(refFree)}
+            style={{ width: "80%", height: "90%" }}
+          >
+            <h2 className="selectBoxTitle">Free NFT for our followers</h2>
 
-          <div className="username-selection-container-mint">
-            <div className="input-container">
-              <input
-                className="mint-input-text"
-                type="text"
-                name="username"
-                value={username}
-                onChange={handleUserNameInput}
-                placeholder={"Enter Your Twitter Name! (example @Aaron_1337)"}
-              />
+            <div className="username-selection-container-mint">
+              <div className="input-container">
+                <input
+                  className="mint-input-text"
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={handleUserNameInput}
+                  placeholder={"Enter Your Twitter Name! (example @Aaron_1337)"}
+                />
+              </div>
             </div>
+            <Web3Button
+              contractAddress={signatureDropAddress}
+              action={() => claimWithSignature()}
+              colorMode="dark"
+            >
+              Free NFT
+            </Web3Button>
           </div>
-          <Web3Button
-            contractAddress={signatureDropAddress}
-            action={() => claimWithSignature()}
-            colorMode="dark"
+          <div
+            className="optionSelectBox"
+            ref={refBuy}
+            onMouseEnter={() => handleMouseEnter(refBuy)}
+            onMouseLeave={() => handleMouseLeave(refBuy)}
+            style={{ width: "80%", height: "90%" }}
           >
-            Free NFT
-          </Web3Button>
+            <h2 className="selectBoxTitle">Purchase an NFT</h2>
+            <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
+            <Web3Button
+              contractAddress={signatureDropAddress}
+              action={() => claim()}
+              colorMode="dark"
+            >
+              Claim
+            </Web3Button>
+          </div>
         </div>
-        <div
-          className="optionSelectBox"
-          ref={refBuy}
-          onMouseEnter={() => handleMouseEnter(refBuy)}
-          onMouseLeave={() => handleMouseLeave(refBuy)}
-          style={{ width: "80%", height: "90%" }}
-        >
-          <h2 className="selectBoxTitle">Purchase an NFT</h2>
-          <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
-          <Web3Button
-            contractAddress={signatureDropAddress}
-            action={() => claim()}
-            colorMode="dark"
-          >
-            Claim
-          </Web3Button>
-        </div>
+        {tokenId !== null && <NFTPopUp tokenId={tokenId} />}
       </div>
-      {tokenId !== null && <NFTPopUp tokenId={tokenId} />}
-    </div>
+    </>
   );
 };
 

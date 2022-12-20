@@ -44,19 +44,22 @@ export default async function generateMintSignature(req, res) {
     process.env.CONTRACT_ADDRESS,
     "signature-drop"
   );
+
   let userInDB = await searchUsers(username);
 
   let twitterFollower = await fetchUser(username);
 
   // If the user has an early access NFT, generate a mint signature
+  // twitterFollower && userInDB.length === 0
   if (twitterFollower && userInDB.length === 0) {
     const mintSignature = await signatureDrop.signature.generate({
       to: address, // Can only be minted by the address we checked earlier
       price: "0", // Free!
       mintStartTime: new Date(0), // now
     });
+    console.log("mint", mintSignature);
     let newUser = await createUser({ username });
-    console.log(newUser);
+    // console.log("ID", newUser);
     res.status(200).json(mintSignature);
   } else {
     res.status(400).json({

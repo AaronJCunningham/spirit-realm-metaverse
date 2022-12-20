@@ -97,7 +97,7 @@ const Menu = ({ width }) => {
               >
                 <a
                   className="a-menu"
-                  href="https://twitter.com/xelevendottech"
+                  href="https://twitter.com/shiloh_spirit"
                   target="_blank"
                   rel="noreferrer"
                 >

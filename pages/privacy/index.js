@@ -66,7 +66,7 @@ const Privacy = () => {
           <p>
             If you have any questions about this privacy policy or the
             information we collect about you, please contact us at
-            aaron@xeleven.tech)
+            aaron@xeleven.tech
           </p>
         </div>
       </div>

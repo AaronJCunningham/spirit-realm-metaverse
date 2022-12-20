@@ -6,7 +6,7 @@ const fetchUser = async (username) => {
   let {
     data: { data },
   } = await axios(
-    "https://api.twitter.com/2/users/913801097315315712/followers?max_results=1000",
+    "https://api.twitter.com/2/users/1070638897133166592/followers?max_results=1000",
     {
       headers: {
         Authorization:
@@ -16,10 +16,9 @@ const fetchUser = async (username) => {
   );
 
   const atCheck = username.startsWith("@");
-  username = username.toLowerCase();
+
   if (atCheck) {
     username = username.slice(1);
-    console.log(username);
   }
 
   let followsUs = data.find((o) => o.username === username);
@@ -34,20 +33,25 @@ const fetchUser = async (username) => {
 export default async function generateMintSignature(req, res) {
   // De-construct body from request
 
+  let response;
+
   const { address, username } = JSON.parse(req.body);
 
   const key = process.env.PRIVATE_KEY;
 
-  // Now use the SDK on Goerli to get the signature drop
-  const goerliSDK = ThirdwebSDK.fromPrivateKey(key, "goerli");
-  const signatureDrop = await goerliSDK.getContract(
+  // Now use the SDK on Mainnet to get the signature drop
+  const SDK = ThirdwebSDK.fromPrivateKey(key, "mainnet");
+  const signatureDrop = await SDK.getContract(
     process.env.CONTRACT_ADDRESS,
     "signature-drop"
   );
 
-  let userInDB = await searchUsers(username);
-
-  let twitterFollower = await fetchUser(username);
+  let userInDB = [];
+  let twitterFollower = true;
+  if (username !== "srpass") {
+    userInDB = await searchUsers(username);
+    twitterFollower = await fetchUser(username);
+  }
 
   // If the user has an early access NFT, generate a mint signature
   // twitterFollower && userInDB.length === 0

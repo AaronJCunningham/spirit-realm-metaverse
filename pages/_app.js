@@ -7,7 +7,7 @@ import Menu from "../components/menu/Menu";
 import Logo from "../components/logo/Logo";
 
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Goerli;
+const activeChainId = ChainId.Mainnet;
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -126,7 +126,7 @@ If they do, we generate a mint signature from the admin wallet on the server-sid
   // Now use the SDK on Goerli to get the signature drop
   const goerliSDK = ThirdwebSDK.fromPrivateKey(
     process.env.PRIVATE_KEY as string,
-    "goerli"
+    "ethereum"
   );
   const signatureDrop = goerliSDK.getSignatureDrop(
     "0xb90a18e9270d44F6e7D06e5Eac32C6Ea881CCaB2"

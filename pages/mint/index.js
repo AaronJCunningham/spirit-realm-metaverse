@@ -10,7 +10,7 @@ import {
 import NFTPopUp from "../../components/mint/NFTPopUp";
 import MetaDataHeader from "../../components/metaheader/MetaDataHeader";
 
-const signatureDropAddress = "0x8e6069D2A11735002914aEd66C2AA5B28FeaAad5";
+const signatureDropAddress = "0xC90eAec4fE6209b540fae6595E927751387Af1b3";
 
 const desc =
   "We created a collection of 5000 PFP NFTs, each of which represents a unique version of a character from our movie.";
@@ -74,7 +74,7 @@ const Home = () => {
 
     if (signedPayloadReq.status === 400) {
       alert(
-        "Whoops, something went wrong. Eitehr you do not follow us, or you already claimed an NFT. If this is a mistake please contact us on Discord :)"
+        "Whoops, something went wrong. Either you do not follow us, or you already claimed an NFT. If this is a mistake please contact us on Discord :)"
       );
       return;
     } else {

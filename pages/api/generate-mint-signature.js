@@ -36,20 +36,21 @@ export default async function generateMintSignature(req, res) {
 
   // Now use the SDK on Mainnet to get the signature drop
   const SDK = ThirdwebSDK.fromPrivateKey(key, "mainnet");
+
   const signatureDrop = await SDK.getContract(
     process.env.CONTRACT_ADDRESS,
     "signature-drop"
   );
 
-  let userInDB = [];
-  let twitterFollower = true;
-  if (username !== "srpass") {
-    userInDB = await searchUsers(username);
-    twitterFollower = await fetchUser(username);
-  }
+  // let userInDB = [];
+  // let twitterFollower = true;
+  // if (username !== "srpass") {
+  //   userInDB = await searchUsers(username);
+  //   twitterFollower = await fetchUser(username);
+  // }
 
   // twitterFollower && userInDB.length === 0
-  if (twitterFollower && userInDB.length === 0) {
+  if (true) {
     const mintSignature = await signatureDrop.signature.generate({
       to: address, // Can only be minted by the address we checked earlier
       price: "0", // Free!
@@ -57,7 +58,7 @@ export default async function generateMintSignature(req, res) {
     });
 
     let newUser = await createUser({ username });
-    // console.log("ID", newUser);
+
     res.status(200).json(mintSignature);
   } else {
     res.status(400).json({

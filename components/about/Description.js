@@ -1,6 +1,7 @@
 const Description = () => {
   return (
-    <div id="team" className="about_content">
+    <>
+      <h1 className="h1-mint">ABOUT</h1>
       <div className="description">
         <p>
           Shiloh and the Spirit Realm" is a story that utilizes web3 technology
@@ -37,7 +38,7 @@ const Description = () => {
           Dezentral.
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

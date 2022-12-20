@@ -10,7 +10,7 @@ import { useMenu } from "../../store";
 
 const Menu = ({ width }) => {
   const [show, setShow] = useState(false);
-  const [circleColor, setCircleColor] = useState("#C0C0C0");
+  const [circleColor, setCircleColor] = useState("#23d5ab");
 
   const circleRef = useRef();
   const router = useRouter();
@@ -48,7 +48,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#71797E" })
+                gsap.to(circleRef.current, { fill: "#23a6d5" })
               }
             >
               SHILOH
@@ -57,7 +57,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/metaverse")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#A9A9A9" })
+                gsap.to(circleRef.current, { fill: "#e73c7e" })
               }
             >
               SPIRIT REALM <sup>BETA</sup>
@@ -65,7 +65,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/movie")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#808080" })
+                gsap.to(circleRef.current, { fill: "#FFA800" })
               }
             >
               MOVIE
@@ -73,7 +73,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/mint")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#B2BEB5" })
+                gsap.to(circleRef.current, { fill: "#3EB489" })
               }
             >
               MINT
@@ -82,7 +82,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/about")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#C0C0C0" })
+                gsap.to(circleRef.current, { fill: "#F906F9" })
               }
             >
               ABOUT
@@ -92,7 +92,7 @@ const Menu = ({ width }) => {
                 className="social-menu-container"
                 onClick={handleSocial}
                 onMouseEnter={() =>
-                  gsap.to(circleRef.current, { fill: "#808080" })
+                  gsap.to(circleRef.current, { fill: "#00FFF9 " })
                 }
               >
                 <a

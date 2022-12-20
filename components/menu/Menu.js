@@ -85,7 +85,7 @@ const Menu = ({ width }) => {
                 gsap.to(circleRef.current, { fill: "#C0C0C0" })
               }
             >
-              INFO
+              ABOUT
             </li>
             <li>
               <div

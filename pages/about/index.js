@@ -14,7 +14,7 @@ const About = () => {
       <div className="page-container">
         <div className="margin">
           <Description />
-          {/* <RoadMap /> */}
+          <RoadMap />
           <div className="links-privacy">
             <Link href="/privacy">Privacy Policy - </Link>
             <Link href="/terms">Terms and Services</Link>

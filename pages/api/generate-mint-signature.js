@@ -1,6 +1,6 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
-import { createUser, searchUsers } from "../../lib/redis";
+// import { createUser, searchUsers } from "../../lib/redis";
 
 const fetchUser = async (username) => {
   let {
@@ -57,7 +57,7 @@ export default async function generateMintSignature(req, res) {
       mintStartTime: new Date(0), // now
     });
 
-    let newUser = await createUser({ username });
+    // let newUser = await createUser({ username });
 
     res.status(200).json(mintSignature);
   } else {

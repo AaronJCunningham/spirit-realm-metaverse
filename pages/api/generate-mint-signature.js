@@ -42,22 +42,22 @@ export default async function generateMintSignature(req, res) {
     "signature-drop"
   );
 
-  // let userInDB = [];
-  // let twitterFollower = true;
-  // if (username !== "srpass") {
-  //   userInDB = await searchUsers(username);
-  //   twitterFollower = await fetchUser(username);
-  // }
+  let userInDB = [];
+  let twitterFollower = true;
+  if (username !== "srpass") {
+    userInDB = await searchUsers(username);
+    twitterFollower = await fetchUser(username);
+  }
 
   // twitterFollower && userInDB.length === 0
-  if (true) {
+  if (twitterFollower && userInDB.length === 0) {
     const mintSignature = await signatureDrop.signature.generate({
       to: address, // Can only be minted by the address we checked earlier
       price: "0", // Free!
       mintStartTime: new Date(0), // now
     });
 
-    // let newUser = await createUser({ username });
+    let newUser = await createUser({ username });
 
     res.status(200).json(mintSignature);
   } else {

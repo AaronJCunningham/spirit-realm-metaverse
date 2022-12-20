@@ -16,7 +16,6 @@ const fetchUser = async (username) => {
   );
 
   const atCheck = username.startsWith("@");
-
   if (atCheck) {
     username = username.slice(1);
   }
@@ -31,10 +30,6 @@ const fetchUser = async (username) => {
 };
 
 export default async function generateMintSignature(req, res) {
-  // De-construct body from request
-
-  let response;
-
   const { address, username } = JSON.parse(req.body);
 
   const key = process.env.PRIVATE_KEY;
@@ -53,7 +48,6 @@ export default async function generateMintSignature(req, res) {
     twitterFollower = await fetchUser(username);
   }
 
-  // If the user has an early access NFT, generate a mint signature
   // twitterFollower && userInDB.length === 0
   if (twitterFollower && userInDB.length === 0) {
     const mintSignature = await signatureDrop.signature.generate({
@@ -61,7 +55,7 @@ export default async function generateMintSignature(req, res) {
       price: "0", // Free!
       mintStartTime: new Date(0), // now
     });
-    console.log("mint", mintSignature);
+
     let newUser = await createUser({ username });
     // console.log("ID", newUser);
     res.status(200).json(mintSignature);

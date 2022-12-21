@@ -19,5 +19,4 @@ const handleSubmit = async (event) => {
   });
 
   const result = res.json();
-  console.log(result);
 };

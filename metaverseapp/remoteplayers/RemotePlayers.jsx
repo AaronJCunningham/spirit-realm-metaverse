@@ -18,13 +18,10 @@ export const RemotePlayers = () => {
       setRemoteData(data);
     });
   }, []);
-  // console.log('remoteplayers', id);
 
   const newData = remoteData.filter((data) => {
     return data.id !== id;
   });
-
-  // console.log(newData);
 
   return newData.map((data) => {
     return <SinglePlayer position={data} key={data.id || Math.random()} />;

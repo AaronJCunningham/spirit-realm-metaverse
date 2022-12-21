@@ -52,9 +52,8 @@ const Home = () => {
   async function claim() {
     try {
       const tx = await signatureDrop?.claim(1);
-      console.log("tx", tx);
+
       if (tx) {
-        console.log("TX", tx[0]?.id.toNumber());
         setTokenId(tx[0]?.id.toNumber());
       }
       alert(`Succesfully minted NFT!`);
@@ -71,7 +70,6 @@ const Home = () => {
         username: username,
       }),
     });
-    console.log(address, username);
 
     if (signedPayloadReq.status === 400) {
       alert(
@@ -81,17 +79,14 @@ const Home = () => {
     } else {
       try {
         const signedPayload = await signedPayloadReq.json();
-        console.log("signed", signedPayload);
-        console.log("sig", signatureDrop);
+
         const nft = await signatureDrop?.signature.mint(signedPayload);
-        // console.log(nft);
 
         if (nft) {
           setTokenId(nft?.id.toNumber());
         }
       } catch (error) {
         alert("error", error?.message);
-        console.log(error);
       }
     }
   }

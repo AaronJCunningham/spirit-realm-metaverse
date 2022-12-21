@@ -18,8 +18,6 @@ const fetchTwitterUser = async () => {
   let retweetObj = data.find((o) => o.username === "whostherplease");
   let retweetBool = typeof retweetObj === "object";
 
-  console.log("res", data, retweetObj, retweetBool);
-
   return retweetBool;
 };
 fetchTwitterUser();

@@ -1,8 +1,13 @@
-import * as THREE from 'three';
-import { SmoothDamp } from '@gsimone/smoothdamp';
-import { Unity } from './unity';
+import * as THREE from "three";
+import { SmoothDamp } from "@gsimone/smoothdamp";
+import { Unity } from "./unity";
 
-export function quatDamp(current: THREE.Quaternion, target: THREE.Quaternion, lambda: number, delta: number) {
+export function quatDamp(
+  current: THREE.Quaternion,
+  target: THREE.Quaternion,
+  lambda: number,
+  delta: number
+) {
   const angleTo = current.angleTo(target);
 
   if (angleTo > 0) {
@@ -11,10 +16,14 @@ export function quatDamp(current: THREE.Quaternion, target: THREE.Quaternion, la
   }
 }
 
-export function quatSmoothDamp(current: THREE.Quaternion, target: THREE.Quaternion, smoothTime: number, delta: number) {
+export function quatSmoothDamp(
+  current: THREE.Quaternion,
+  target: THREE.Quaternion,
+  smoothTime: number,
+  delta: number
+) {
   const angleTo = current.angleTo(target);
   const smoothDamp = new SmoothDamp(smoothTime / 10, 50);
-  console.log(angleTo);
 
   if (angleTo > 0) {
     const t = smoothDamp.get(0, angleTo, delta);
@@ -22,7 +31,11 @@ export function quatSmoothDamp(current: THREE.Quaternion, target: THREE.Quaterni
   }
 }
 
-function projectOnVector(a: THREE.Vector4, b: THREE.Vector4, target: THREE.Vector4) {
+function projectOnVector(
+  a: THREE.Vector4,
+  b: THREE.Vector4,
+  target: THREE.Vector4
+) {
   const denominator = a.lengthSq();
 
   if (denominator === 0) return b.set(0, 0, 0, 0);
@@ -39,7 +52,7 @@ export function quatSmoothDamp2(
   current: THREE.Quaternion,
   target: THREE.Quaternion,
   smoothTime: number,
-  delta: number,
+  delta: number
 ) {
   if (delta < Number.EPSILON) return current;
   // account for double-cover
@@ -54,13 +67,17 @@ export function quatSmoothDamp2(
     Unity.smoothDamp(current.x, target.x, deriv.x, smoothTime, Infinity, delta),
     Unity.smoothDamp(current.y, target.y, deriv.y, smoothTime, Infinity, delta),
     Unity.smoothDamp(current.z, target.z, deriv.z, smoothTime, Infinity, delta),
-    Unity.smoothDamp(current.w, target.w, deriv.w, smoothTime, Infinity, delta),
+    Unity.smoothDamp(current.w, target.w, deriv.w, smoothTime, Infinity, delta)
   ).normalize();
 
   // ensure deriv is tangent
   // const derivError = Vector4.Project(new Vector4(deriv.x, deriv.y, deriv.z, deriv.w), result);
   const derivError = new THREE.Vector4();
-  projectOnVector(new THREE.Vector4(deriv.x, deriv.y, deriv.z, deriv.w), result, derivError);
+  projectOnVector(
+    new THREE.Vector4(deriv.x, deriv.y, deriv.z, deriv.w),
+    result,
+    derivError
+  );
   deriv.x -= derivError.x;
   deriv.y -= derivError.y;
   deriv.z -= derivError.z;

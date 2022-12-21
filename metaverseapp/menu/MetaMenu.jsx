@@ -44,7 +44,7 @@ export const MetaMenu = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("submit");
+
     setUserName(inputValue);
     socket.emit("customizeName", {
       id: socket.id,

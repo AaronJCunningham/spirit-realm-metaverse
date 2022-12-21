@@ -364,7 +364,6 @@ export function CharacterController({
 
   function updateSocket() {
     if (socket !== undefined && meshRef.current !== null) {
-      // console.log(character);
       socket.emit("update", {
         id: socket.id,
         x: meshRef.current?.position?.x,

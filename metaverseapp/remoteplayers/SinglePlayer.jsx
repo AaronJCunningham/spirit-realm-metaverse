@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { Billboard, Text } from '@react-three/drei';
+import { useRef, useState } from "react";
+import { useFrame } from "@react-three/fiber";
+import { Billboard, Text } from "@react-three/drei";
 
-import * as THREE from 'three';
+import * as THREE from "three";
 
-import { Ghost } from './GhostCopy';
+import { Ghost } from "./GhostCopy";
 
 export const SinglePlayer = ({ position }) => {
   const ref = useRef();
@@ -35,12 +35,6 @@ export const SinglePlayer = ({ position }) => {
     ref.current.setRotationFromQuaternion(quat);
   });
 
-  const handleClick = (e) => {
-    if (e.type === 'click') {
-      console.log(id);
-    }
-  };
-
   return (
     <>
       <group ref={textRef}>
@@ -51,11 +45,11 @@ export const SinglePlayer = ({ position }) => {
           lockZ={false} // Lock the rotation on the z axis (default=false)
         >
           <Text anchorY="top" fontSize={0.05}>
-            {username ? username : 'Shiloh'}
+            {username ? username : "Shiloh"}
           </Text>
         </Billboard>
       </group>
-      <group ref={ref} onClick={handleClick}>
+      <group ref={ref}>
         <Ghost r={R} g={G} b={B} singleWalking={walking} color={color} />
       </group>
     </>

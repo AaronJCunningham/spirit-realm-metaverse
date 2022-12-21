@@ -9,7 +9,6 @@ export const useIsMobile = () => {
     )
   ) {
     setIsMobile(true);
-    console.log("mobile", isMobile);
   }
 
   return isMobile;

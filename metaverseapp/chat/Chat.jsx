@@ -22,8 +22,6 @@ export const Chat = () => {
     state.setUserName,
   ]);
 
-  console.log("chat name ", userName);
-
   useEffect(() => {
     socket.on("chat", (data) => {
       setChat(data);
@@ -42,7 +40,7 @@ export const Chat = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
+
     socket.emit("chat", {
       id: id,
       message: `${userName ? userName : "Shiloh"}: ${input}`,

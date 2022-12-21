@@ -32,13 +32,11 @@ const Home = () => {
       )
     ) {
       setIsMobile(true);
-      console.log("mobile", isMobile);
     }
   };
 
   useEffect(() => {
     checkMobile();
-    console.log(isMobile);
   }, []);
 
   return (

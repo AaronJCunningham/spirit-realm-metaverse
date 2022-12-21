@@ -1,14 +1,7 @@
 import { useEffect } from "react";
-import CookieConsent, {
-  Cookies,
-  getCookieConsentValue,
-} from "react-cookie-consent";
+import CookieConsent, { Cookies } from "react-cookie-consent";
 
 export const CookieAccept = () => {
-  useEffect(() => {
-    console.log("value", getCookieConsentValue());
-  }, []);
-
   return (
     <CookieConsent
       location="bottom"

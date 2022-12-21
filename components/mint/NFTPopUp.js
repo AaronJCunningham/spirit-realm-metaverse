@@ -9,7 +9,6 @@ const NFTPopUp = ({ tokenId }) => {
     "signature-drop"
   );
   const { data } = useNFT(signatureDrop, tokenId);
-  console.log(data);
 
   useEffect(() => {
     setTimeout(() => {

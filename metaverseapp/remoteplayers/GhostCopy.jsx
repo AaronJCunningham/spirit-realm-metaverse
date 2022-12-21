@@ -9,7 +9,7 @@ import { useFrame, useGraph } from "@react-three/fiber";
 import { useInputs } from "../input/input-controller";
 import * as THREE from "three";
 
-export function Ghost(props) {
+export function Ghost({ color = "#3191E0", singleWalking }) {
   const [walking, setWalking] = useState(false);
 
   const group = useRef();
@@ -34,10 +34,10 @@ export function Ghost(props) {
 
   useFrame(() => {
     setWalking(false);
-    if (props.singleWalking === true) {
+    if (singleWalking === true) {
       setWalking(true);
     }
-    hoodie.current.material.color.set(props.color);
+    hoodie.current.material.color.set(color);
 
     mask.current.material.color.set("white");
   });
@@ -46,7 +46,7 @@ export function Ghost(props) {
   // useGraph creates two flat object collections for nodes and materials
   const { nodes } = useGraph(clone);
   return (
-    <group ref={group} {...props} dispose={null} scale={0.35}>
+    <group ref={group} dispose={null} scale={0.35}>
       <group name="Scene">
         <group
           name="Armature"

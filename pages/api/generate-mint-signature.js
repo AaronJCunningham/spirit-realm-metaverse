@@ -1,6 +1,6 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
-// import { createUser, searchUsers } from "../../lib/redis";
+import { createUser, searchUsers } from "../../lib/redis";
 
 const fetchUser = async (username) => {
   let {

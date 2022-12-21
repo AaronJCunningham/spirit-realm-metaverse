@@ -105,11 +105,14 @@ const Home = () => {
         <h1 className="h1-mint">5K NFTS</h1>
         <p className="description">
           Only the owners of our NFT collection can vote on what happens next in
-          our movie. Luckily for you, these NFTs are free to obtain. In addition
-          to giving you the ability to participate in the decision-making
-          process for the movie, owning an NFT will also unlock a range of
-          features on our roadmap. These features will be available exclusively
-          to NFT owners, so be sure to get yours today.
+          our movie and metaverse. Luckily for you, these NFTs are free to
+          obtain.
+        </p>
+        <p className="description">
+          In addition to giving you the ability to participate in the
+          decision-making process for the movie, owning an NFT will also unlock
+          a range of features on our roadmap. These features will be available
+          exclusively to NFT owners, so be sure to get yours today.
         </p>
         <div className="list-container">
           <h4>It's super simple to claim a free NFT</h4>
@@ -163,7 +166,7 @@ const Home = () => {
             onMouseLeave={() => handleMouseLeave(refBuy)}
             style={{ width: "80%", height: "90%" }}
           >
-            <h2 className="selectBoxTitle">Purchase an NFT</h2>
+            <h2 className="selectBoxTitle">Buy</h2>
             <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
             <Web3Button
               contractAddress={signatureDropAddress}

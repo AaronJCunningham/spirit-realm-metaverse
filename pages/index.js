@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import Script from "next/script";
+
 import { Loader } from "../components/threedee/Loader";
 import { useProgressStore } from "../store";
 import Menu from "../components/menu/Menu";

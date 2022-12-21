@@ -50,7 +50,7 @@ export default async function generateMintSignature(req, res) {
   }
 
   // twitterFollower && userInDB.length === 0
-  if (true) {
+  if (twitterFollower && userInDB.length === 0) {
     const mintSignature = await signatureDrop.signature.generate({
       to: address, // Can only be minted by the address we checked earlier
       price: "0", // Free!

@@ -1,6 +1,6 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
-import { createUser, searchUsers } from "../../lib/redis";
+// import { createUser, searchUsers } from "../../lib/redis";
 
 const fetchUser = async (username) => {
   let {
@@ -42,12 +42,12 @@ export default async function generateMintSignature(req, res) {
     "signature-drop"
   );
 
-  let userInDB = [];
-  let twitterFollower = true;
-  if (username !== "srpass") {
-    userInDB = await searchUsers(username);
-    twitterFollower = await fetchUser(username);
-  }
+  // let userInDB = [];
+  // let twitterFollower = true;
+  // if (username !== "srpass") {
+  //   userInDB = await searchUsers(username);
+  //   twitterFollower = await fetchUser(username);
+  // }
 
   // twitterFollower && userInDB.length === 0
   if (true) {
@@ -57,7 +57,7 @@ export default async function generateMintSignature(req, res) {
       mintStartTime: new Date(0), // now
     });
 
-    let newUser = await createUser({ username });
+    // let newUser = await createUser({ username });
 
     res.status(200).json(mintSignature);
   } else {

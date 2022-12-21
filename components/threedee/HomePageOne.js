@@ -18,7 +18,7 @@ const HomePageOne = ({ isMobile }) => {
 
   return (
     <div className="canvas">
-      <TextForLandingPage progress={progress} />
+      <TextForLandingPage progress={progress} isMobile={isMobile} />
       <Canvas
         camera={{
           fov: 15,

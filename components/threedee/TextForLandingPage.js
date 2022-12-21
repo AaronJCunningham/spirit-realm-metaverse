@@ -2,7 +2,7 @@ export const TextForLandingPage = ({ progress }) => {
   return (
     <div className="welcome_container">
       <div className="welcome_message">
-        <h1>Shiloh and the Spirit Realm</h1>
+        <h1>Shiloh and the Spirit Realm Metaverse and Movie!</h1>
         <h2>{Math.floor(progress)}%</h2>
         <p>Welcome! We are loading the content for you!</p>
         <p>

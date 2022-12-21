@@ -13,13 +13,12 @@ import { Collider } from "./collider/collider";
 import Space from "./test-assets/Space";
 import { PlayerController } from "./player/player-controller";
 
-import { TestExtenstionTerrain } from "./test-assets/test-extension-terrain";
 import { InputSystem } from "./input/input-system";
 import { RemotePlayers } from "./remoteplayers/RemotePlayers";
 import { Chat } from "./chat/Chat";
 import Shader from "./shader/Portal";
 import { Ghost } from "./remoteplayers/Ghost10";
-import { PortalWorld } from "./test-assets/Portalworld14";
+import { PortalWorld } from "./test-assets/Portalworld15";
 import { MetaMenu } from "./menu/MetaMenu";
 import { TextForMetaPage } from "./loading/TextForMetaPage";
 

@@ -37,3 +37,9 @@
   width: 80%;
   margin: auto;
 }
+
+@media only screen and (max-width: 501px) {
+  .welcome_message {
+    margin-top: 20px;
+  }
+}

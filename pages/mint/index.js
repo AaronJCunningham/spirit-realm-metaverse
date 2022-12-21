@@ -72,6 +72,7 @@ const Home = () => {
       }),
     });
     console.log(address, username);
+
     if (signedPayloadReq.status === 400) {
       alert(
         "Whoops, something went wrong. Either you do not follow us, or you already claimed an NFT. If this is a mistake please contact us on Discord :)"

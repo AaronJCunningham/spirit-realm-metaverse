@@ -2,13 +2,19 @@ import React from "react";
 import { Suspense } from "react";
 
 export const YouTubeGrid = () => {
-  const videos = [
-    { id: "HHetbIYg7og", src: "https://www.youtube.com/watch?v=HHetbIYg7og" },
-  ];
-
   return (
     <div className="youtube-grid">
-      <div className="youtube-grid-item"></div>
+      <div className="youtube-grid-item">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/IIyymDGVrH8"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
   );
 };

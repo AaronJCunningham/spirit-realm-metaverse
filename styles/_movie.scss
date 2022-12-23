@@ -1,13 +1,8 @@
 .youtube-grid {
-  background-color: aqua;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   max-width: 1200px;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.youtube-grid-item {
-  background-color: blue;
 }

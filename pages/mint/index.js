@@ -112,8 +112,24 @@ const Home = () => {
         <div className="list-container">
           <h4>It's super simple to claim a free NFT</h4>
           <ul className="ul-mint">
-            <li>Follow us on Twitter</li>
-            <li>Retweet our pinned post</li>
+            <li>
+              <a
+                href="https://twitter.com/shiloh_spirit"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Follow us on Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/shiloh_spirit/status/1606306292863492096"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Retweet our pinned post
+              </a>
+            </li>
             <li>Claim a free NFT</li>
           </ul>
         </div>

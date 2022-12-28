@@ -2,7 +2,7 @@ export const TextForMetaPage = ({ progress }) => {
   return (
     <div className="welcome_container">
       <div className="welcome_message">
-        <h1>Welcome to the Spirit Realm Metaverse</h1>
+        <h1>The Spirit Realm Metaverse!</h1>
         <h2>{Math.floor(progress)}%</h2>
         <p>Welcome! We are loading the content for you!</p>
         <p>

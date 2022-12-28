@@ -13,7 +13,7 @@ const Description = () => {
           to shape the course of the story by voting on what happens next in
           each new chapter.
         </p>
-        <h4>The Team</h4>
+        <h4 className="about-h4">The Team</h4>
         <p>
           "Shiloh and the Spirit Realm" was developed by{" "}
           <a href="https://xeleven.tech" target="_blank" rel="noreferrer">

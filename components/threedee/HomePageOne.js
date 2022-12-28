@@ -5,7 +5,7 @@ import { Intro } from "./Intro";
 import { Effects } from "./Effects";
 
 import { Lighting } from "./Lighting";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 import { Shiloh } from "./Shiloh06";
 
@@ -15,7 +15,17 @@ import { TextForLandingPage } from "./TextForLandingPage";
 import { MobilePopUp } from "./MobilePopUp";
 
 const HomePageOne = ({ isMobile }) => {
-  const { active, progress, errors, item, loaded, total } = useProgress();
+  const [loaded, setLoaded] = useState(false);
+
+  const { progress } = useProgress();
+
+  useEffect(() => {
+    if (progress === 100) {
+      setLoaded(true);
+    } else {
+      setLoaded(false);
+    }
+  }, [progress]);
 
   return (
     <div className="canvas">

@@ -21,6 +21,7 @@ import { Ghost } from "./remoteplayers/Ghost10";
 import { PortalWorld } from "./test-assets/Portalworld15";
 import { MetaMenu } from "./menu/MetaMenu";
 import { TextForMetaPage } from "./loading/TextForMetaPage";
+import { Instructions } from "./instructions/Instructions";
 
 const FIXED_STEP = 1 / 60;
 
@@ -63,15 +64,16 @@ export default function SpiritRealm() {
   }, [progress]);
 
   return (
-    <>
+    <div className="canvas">
       <Chat />
       <MetaMenu />
       {!loaded && <TextForMetaPage progress={progress} />}
+      {loaded && <Instructions />}
       <Canvas shadows gl={{ physicallyCorrectLights: true }}>
         <StrictMode>
           <Game />
         </StrictMode>
       </Canvas>
-    </>
+    </div>
   );
 }

@@ -10,12 +10,13 @@ import MetaDataHeader from "../components/metaheader/MetaDataHeader";
 
 //G-6J7B5QK5HG
 
-const HomePageOne = dynamic(
-  () => import("../components/threedee/HomePageOne"),
-  {
-    ssr: false,
-  }
-);
+const SpiritRealm = dynamic(() => import("../metaverseapp/SpiritRealm"), {
+  ssr: false,
+});
+
+const Shiloh = dynamic(() => import("../components/threedee/HomePageOne"), {
+  ssr: false,
+});
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -57,7 +58,7 @@ const Home = () => {
       </Script>
       <div className="main-container">
         <div className="pageone-container">
-          <HomePageOne isMobile={isMobile} />
+          {isMobile ? <Shiloh /> : <SpiritRealm />}
         </div>
       </div>
     </>

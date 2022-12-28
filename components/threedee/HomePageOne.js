@@ -12,12 +12,14 @@ import { Shiloh } from "./Shiloh06";
 import { useEffect } from "react";
 import BallLight from "./BallLight";
 import { TextForLandingPage } from "./TextForLandingPage";
+import { MobilePopUp } from "./MobilePopUp";
 
 const HomePageOne = ({ isMobile }) => {
   const { active, progress, errors, item, loaded, total } = useProgress();
 
   return (
     <div className="canvas">
+      {loaded && <MobilePopUp />}
       <TextForLandingPage progress={progress} isMobile={isMobile} />
       <Canvas
         camera={{

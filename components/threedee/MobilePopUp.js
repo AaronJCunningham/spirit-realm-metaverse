@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-export const Instructions = () => {
+export const MobilePopUp = () => {
   const [open, setOpen] = useState(true);
 
   return open ? (
@@ -15,12 +15,8 @@ export const Instructions = () => {
         </div>
         <div className="description-instructions">
           <p>
-            CHARACTER MOVEMENT: A-W-S-D to move, SPACE to jump,
-            Left-Mouse-Button to look around
-          </p>
-          <p>Click CHAT to chat. Click Menu to customize your character.</p>
-          <p>
-            Join our{" "}
+            Our metaverse is currently unavaiable on this device. Try on
+            desktop. Join our
             <a
               href="https://discord.gg/4CKYqStK29"
               target="_blank"

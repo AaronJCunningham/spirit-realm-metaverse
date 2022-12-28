@@ -46,15 +46,6 @@ const Menu = ({ width }) => {
         <div className="menu_container">
           <ul className="menu_main_list">
             <li
-              onClick={() => handleLink("/")}
-              onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#23a6d5" })
-              }
-            >
-              SHILOH
-            </li>
-
-            <li
               onClick={() => handleLink("/metaverse")}
               onMouseEnter={() =>
                 gsap.to(circleRef.current, { fill: "#e73c7e" })

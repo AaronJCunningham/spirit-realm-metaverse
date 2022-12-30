@@ -14,3 +14,8 @@ export const useCustomName = create((set) => ({
   userName: "",
   setUserName: (userName) => set({ userName }),
 }));
+
+export const useMobileInput = create((set) => ({
+  pos: { x: 0, y: 0 },
+  setPos: (pos) => set({ pos }),
+}));

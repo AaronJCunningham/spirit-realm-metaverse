@@ -17,7 +17,7 @@ import { useInputs } from "../input/input-controller";
 import { useEffect, useState } from "react";
 import socket from "../socketUtlities/socketConnection";
 import * as THREE from "three";
-import { useChatFocus } from "../store/MetaStore";
+import { useChatFocus, useMobileInput } from "../store/MetaStore";
 
 type PlayerControllerProps = CharacterControllerProps &
   Omit<GravityProps, "alwaysOn"> &
@@ -47,6 +47,8 @@ export function PlayerController({
     state.chatFocus,
     state.setChatFocus,
   ]);
+
+  const [pos, setPos] = useMobileInput((state) => [state.pos, state.setPos]);
   const character = useCharacterController((state) => state.character);
   const setTarget = useCameraController((state) => state.setTarget);
 
@@ -73,7 +75,7 @@ export function PlayerController({
       }
     }
   });
-
+  // console.log("pos", pos.y, pos.x);
   // Update the player's movement vector based on camera direction.
   useUpdate((state) => {
     if (chatFocus === false) {

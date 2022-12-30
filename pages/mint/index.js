@@ -178,7 +178,7 @@ const Home = () => {
             style={{ width: "80%", height: "90%" }}
           >
             <h2 className="selectBoxTitle">Buy</h2>
-            <p className="selectBoxDescription">Buy an NFT for 0.1 ETH.</p>
+            <p className="selectBoxDescription">Buy an NFT for 0.025 ETH.</p>
             <Web3Button
               contractAddress={signatureDropAddress}
               action={() => claim()}

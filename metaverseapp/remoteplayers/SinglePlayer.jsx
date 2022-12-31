@@ -26,10 +26,10 @@ export const SinglePlayer = ({ position }) => {
     quat.set(qx, qy, qz, qw).multiply(quat90);
 
     ref.current.position.x = x;
-    ref.current.position.y = y;
+    ref.current.position.y = y - 0.1;
     ref.current.position.z = z;
     textRef.current.position.x = x;
-    textRef.current.position.y = y + 0.6;
+    textRef.current.position.y = y + 0.5;
     textRef.current.position.z = z;
 
     ref.current.setRotationFromQuaternion(quat);

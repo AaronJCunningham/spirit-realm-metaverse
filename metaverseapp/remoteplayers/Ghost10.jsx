@@ -46,7 +46,7 @@ export function Ghost(props) {
     if (move.x !== 0 || move.y !== 0) {
       setWalking(true);
     }
-    textRef.current.position.y = hoodie.current.position.y + 1.8;
+    textRef.current.position.y = hoodie.current.position.y + 1.85;
     // group.current.position.y = -0.5;
 
     // mask.current.material.color.set(`${color}`);
@@ -56,6 +56,7 @@ export function Ghost(props) {
     hoodie.current.material.color.set(`${color}`);
     // hoodie.current.material.transparent = true;
     // hoodie.current.material.opacity = 0.8;
+    group.current.position.y = -0.1;
   });
 
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);

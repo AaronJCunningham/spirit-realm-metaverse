@@ -8,3 +8,10 @@ export const useProgressStore = create((set) => ({
 export const useMenu = create((set) => ({
   menuOpen: false,
 }));
+
+export const useRouterFix = create(() => {
+  return {
+    router: null,
+    dom: null,
+  };
+});

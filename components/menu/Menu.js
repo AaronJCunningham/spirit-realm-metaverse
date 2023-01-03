@@ -96,7 +96,7 @@ const Menu = ({ width }) => {
                 </a>
                 <a
                   className="a-menu"
-                  href="https://discord.gg/Th8WjmbESZ"
+                  href="https://discord.gg/bkpVuPP3jQ"
                   target="_blank"
                   rel="noreferrer"
                 >

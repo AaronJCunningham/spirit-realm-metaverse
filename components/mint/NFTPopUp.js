@@ -24,7 +24,7 @@ const NFTPopUp = ({ tokenId }) => {
         <p>
           Don't forget to join our{" "}
           <a
-            href="https://discord.gg/Th8WjmbESZ"
+            href="https://discord.gg/bkpVuPP3jQ"
             target="_blank"
             rel="noreferrer"
           >

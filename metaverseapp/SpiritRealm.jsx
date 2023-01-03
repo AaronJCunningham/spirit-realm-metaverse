@@ -26,7 +26,7 @@ import { MobileControls } from "./joystick/Joystick";
 
 const FIXED_STEP = 1 / 60;
 
-function Game() {
+function Game({ isMobile }) {
   useLayoutEffect(() => {
     Stages.Fixed.fixedStep = FIXED_STEP;
   }, []);
@@ -51,7 +51,7 @@ function Game() {
   );
 }
 
-export default function SpiritRealm() {
+export default function SpiritRealm({ isMobile }) {
   const [loaded, setLoaded] = useState(false);
 
   const { progress } = useProgress();
@@ -68,12 +68,12 @@ export default function SpiritRealm() {
     <div className="canvas">
       <Chat />
       <MetaMenu />
-      {/* <MobileControls /> */}
+      {isMobile && <MobileControls />}
       {!loaded && <TextForMetaPage progress={progress} />}
       {loaded && <Instructions />}
       <Canvas shadows gl={{ physicallyCorrectLights: true }}>
         <StrictMode>
-          <Game />
+          <Game isMobile={isMobile} />
         </StrictMode>
       </Canvas>
     </div>

@@ -58,7 +58,7 @@ const Home = () => {
       </Script>
       <div className="main-container">
         <div className="pageone-container">
-          {isMobile ? <Shiloh /> : <SpiritRealm />}
+          <SpiritRealm isMobile={isMobile} />
         </div>
       </div>
     </>

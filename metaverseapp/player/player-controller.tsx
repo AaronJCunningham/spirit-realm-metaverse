@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import socket from "../socketUtlities/socketConnection";
 import * as THREE from "three";
 import { useChatFocus, useMobileInput } from "../store/MetaStore";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 type PlayerControllerProps = CharacterControllerProps &
   Omit<GravityProps, "alwaysOn"> &
@@ -81,8 +82,12 @@ export function PlayerController({
     if (chatFocus === false) {
       const { move: moveInput } = inputs;
       const { forward, right, walk, move } = store;
+      if (pos.x !== 0 || pos.y !== 0) {
+        move.set(pos.x, pos.y);
+      } else {
+        move.set(moveInput.x, moveInput.y);
+      }
 
-      move.set(moveInput.x, moveInput.y);
       const magnitude = Math.min(move.length(), 1);
       move.normalize();
 

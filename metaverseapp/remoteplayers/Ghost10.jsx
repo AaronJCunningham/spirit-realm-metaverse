@@ -6,9 +6,11 @@ import React, { useRef, useMemo, useEffect, useState } from "react";
 import { useGLTF, useAnimations, Billboard, Text } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import { useFrame, useGraph } from "@react-three/fiber";
+import { Howl } from "howler";
 import { useInputs } from "../input/input-controller";
 import * as THREE from "three";
 import { useCustomColor, useCustomName } from "../store/MetaStore";
+import { playSound } from "../audio/Whoosh";
 
 export function Ghost(props) {
   const [walking, setWalking] = useState(false);
@@ -29,14 +31,21 @@ export function Ghost(props) {
 
   const input = useInputs();
 
+  // const sound = new Howl({
+  //   src: "/sounds/whoosh1.webm",
+  //   volume: 0.1,
+  // });
+
   useEffect(() => {
     if (walking) {
       actions?.walk.play();
+      // sound.play();
     }
     if (!walking) {
       actions?.walk.stop();
       actions?.idle.play();
     }
+    // return () => sound.pause();
   }, [walking]);
 
   useFrame(() => {
@@ -77,6 +86,7 @@ export function Ghost(props) {
             </Text>
           </Billboard>
         </group>
+
         <group name="Scene">
           <group
             name="Armature"

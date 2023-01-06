@@ -1,5 +1,4 @@
 import React from "react";
-import ReactNipple from "react-nipple";
 import { useMobileInput } from "../store/MetaStore";
 
 // optional: include the stylesheet somewhere in your app

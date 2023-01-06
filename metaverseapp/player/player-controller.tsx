@@ -78,13 +78,16 @@ export function PlayerController({
   });
   // console.log("pos", pos.y, pos.x);
   // Update the player's movement vector based on camera direction.
+  const lerpMove = new THREE.Vector2();
+
   useUpdate((state) => {
     if (chatFocus === false) {
       const { move: moveInput } = inputs;
       const { forward, right, walk, move } = store;
 
       if (pos.x !== 0 || pos.y !== 0) {
-        move.set(pos.x, pos.y);
+        lerpMove.set(pos.x, pos.y);
+        move.lerp(lerpMove, 0.5);
       } else {
         move.set(moveInput.x, moveInput.y);
       }

@@ -39,7 +39,7 @@ export function Ghost(props) {
   useEffect(() => {
     if (walking) {
       actions?.walk.play();
-      sound.play();
+      // sound.play();
     }
     if (!walking) {
       actions?.walk.stop();

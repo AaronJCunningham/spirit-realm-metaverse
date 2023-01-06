@@ -13,32 +13,35 @@ export const MobileControls = () => {
     const { direction, position, angle } = data;
 
     if (angle) {
-      const { radian } = angle;
-      console.log(radian);
-      if (radian !== 0) {
-        if (radian >= 1 && radian <= 2) {
+      const { degree } = angle;
+      console.log(degree);
+      if (degree !== 0) {
+        if (degree >= 0 && degree <= 27.5) {
+          setPos({ x: 1, y: 0 });
+        }
+        if (degree >= 332.5 && degree <= 360.01) {
+          setPos({ x: 1, y: 0 });
+        }
+        if (degree >= 27.5 && degree <= 72.5) {
+          setPos({ x: 1, y: 1 });
+        }
+        if (degree >= 72.501 && degree <= 117.5) {
           setPos({ x: 0, y: 1 });
         }
-        if (radian >= 2 && radian <= 2.6) {
+        if (degree >= 117.501 && degree <= 162.5) {
           setPos({ x: -1, y: 1 });
         }
-        if (radian >= 2.6 && radian <= 3.5) {
+        if (degree >= 162.501 && degree <= 207.5) {
           setPos({ x: -1, y: 0 });
         }
-        if (radian >= 3.5 && radian <= 4.5) {
+        if (degree >= 207.501 && degree <= 252.5) {
           setPos({ x: -1, y: -1 });
         }
-        if (radian >= 4.5 && radian <= 5.5) {
+        if (degree >= 252.501 && degree <= 297.5) {
           setPos({ x: 0, y: -1 });
         }
-        if (radian >= 5.5 && radian <= 6.25) {
-          setPos({ x: 1, y: 0 });
-        }
-        if (radian >= 0 && radian <= 0.5) {
-          setPos({ x: 1, y: 0 });
-        }
-        if (radian >= 0.5 && radian <= 1) {
-          setPos({ x: 1, y: 1 });
+        if (degree >= 297.501 && degree <= 332.5) {
+          setPos({ x: 1, y: -1 });
         }
       }
     }

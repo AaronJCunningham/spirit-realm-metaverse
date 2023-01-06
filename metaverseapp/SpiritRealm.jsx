@@ -68,7 +68,7 @@ export default function SpiritRealm({ isMobile }) {
     <div className="canvas">
       <Chat />
       <MetaMenu />
-      {true && <MobileControls />}
+      {isMobile && <MobileControls />}
       {!loaded && <TextForMetaPage progress={progress} />}
       {loaded && <Instructions />}
       <Canvas shadows gl={{ physicallyCorrectLights: true }}>

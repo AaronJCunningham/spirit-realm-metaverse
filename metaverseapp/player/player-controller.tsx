@@ -83,7 +83,11 @@ export function PlayerController({
       const { move: moveInput } = inputs;
       const { forward, right, walk, move } = store;
 
-      move.set(moveInput.x, moveInput.y);
+      if (pos.x !== 0 || pos.y !== 0) {
+        move.set(pos.x, pos.y);
+      } else {
+        move.set(moveInput.x, moveInput.y);
+      }
 
       const magnitude = Math.min(move.length(), 1);
       move.normalize();

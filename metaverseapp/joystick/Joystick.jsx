@@ -7,25 +7,39 @@ import "react-nipple/lib/styles.css";
 export const MobileControls = () => {
   const [pos, setPos] = useMobileInput((state) => [state.pos, state.setPos]);
 
-  const handleMove = (evt, data) => {
-    const { direction, position } = data;
-    console.log(evt, data);
+  const round = () => {};
 
-    if (direction) {
-      if (direction.x === "right" && direction.y === "up") {
-        setPos({ x: data.position.x / 650, y: data.position.y / 650 });
-      }
-      if (direction.x === "left" && direction.y === "up") {
-        setPos({ x: (data.position.x * -1) / 650, y: data.position.y / 650 });
-      }
-      if (direction.x === "right" && direction.y === "down") {
-        setPos({ x: data.position.x / 650, y: (data.position.y * -1) / 650 });
-      }
-      if (direction.x === "left" && direction.y === "down") {
-        setPos({
-          x: (data.position.x * -1) / 650,
-          y: (data.position.y * -1) / 650,
-        });
+  const handleMove = (evt, data) => {
+    const { direction, position, angle } = data;
+
+    if (angle) {
+      const { radian } = angle;
+      console.log(radian);
+      if (radian !== 0) {
+        if (radian >= 1 && radian <= 2) {
+          setPos({ x: 0, y: 1 });
+        }
+        if (radian >= 2 && radian <= 2.6) {
+          setPos({ x: -1, y: 1 });
+        }
+        if (radian >= 2.6 && radian <= 3.5) {
+          setPos({ x: -1, y: 0 });
+        }
+        if (radian >= 3.5 && radian <= 4.5) {
+          setPos({ x: -1, y: -1 });
+        }
+        if (radian >= 4.5 && radian <= 5.5) {
+          setPos({ x: 0, y: -1 });
+        }
+        if (radian >= 5.5 && radian <= 6.25) {
+          setPos({ x: 1, y: 0 });
+        }
+        if (radian >= 0 && radian <= 0.5) {
+          setPos({ x: 1, y: 0 });
+        }
+        if (radian >= 0.5 && radian <= 1) {
+          setPos({ x: 1, y: 1 });
+        }
       }
     }
   };

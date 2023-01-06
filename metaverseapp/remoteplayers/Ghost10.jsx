@@ -31,15 +31,15 @@ export function Ghost(props) {
 
   const input = useInputs();
 
-  // const sound = new Howl({
-  //   src: "/sounds/whoosh1.webm",
-  //   volume: 0.1,
-  // });
+  const sound = new Howl({
+    src: "/sounds/whoosh1.webm",
+    volume: 0.1,
+  });
 
   useEffect(() => {
     if (walking) {
       actions?.walk.play();
-      // sound.play();
+      sound.play();
     }
     if (!walking) {
       actions?.walk.stop();

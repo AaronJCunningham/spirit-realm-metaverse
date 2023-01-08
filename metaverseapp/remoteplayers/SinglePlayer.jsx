@@ -49,7 +49,7 @@ export const SinglePlayer = ({ position }) => {
           </Text>
         </Billboard>
       </group>
-      <group ref={ref}>
+      <group ref={ref} onClick={() => console.log(id)}>
         <Ghost r={R} g={G} b={B} singleWalking={walking} color={color} />
       </group>
     </>

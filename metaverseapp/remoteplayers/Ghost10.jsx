@@ -34,6 +34,7 @@ export function Ghost(props) {
   const sound = new Howl({
     src: "/sounds/whoosh1.webm",
     volume: 0.1,
+    loop: true,
   });
 
   useEffect(() => {

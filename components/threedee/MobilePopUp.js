@@ -16,9 +16,9 @@ export const MobilePopUp = () => {
         <div className="description-instructions">
           <p>
             Our metaverse is currently unavaiable on this device. Try on
-            desktop. Join our
+            desktop. Join our{" "}
             <a
-              href="https://discord.gg/4CKYqStK29"
+              href="https://discord.com/invite/bkpVuPP3jQ"
               target="_blank"
               rel="noreferrer"
             >

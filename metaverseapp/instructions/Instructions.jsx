@@ -22,7 +22,7 @@ export const Instructions = () => {
           <p>
             Join our{" "}
             <a
-              href="https://discord.gg/4CKYqStK29"
+              href="https://discord.com/invite/bkpVuPP3jQ"
               target="_blank"
               rel="noreferrer"
             >

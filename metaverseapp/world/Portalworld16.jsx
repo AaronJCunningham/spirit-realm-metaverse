@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export function PortalWorld(props) {
   const [frame01, setFrame01] = useState(null);
-  const { scene, nodes, materials } = useGLTF("/portalworld16.glb");
+  const { scene, nodes, materials } = useGLTF("/world/world01.glb");
 
   useEffect(() => {
     setFrame01(scene.getObjectByName("frame01"));
@@ -24,4 +24,4 @@ export function PortalWorld(props) {
   );
 }
 
-useGLTF.preload("/portalworld16.glb");
+useGLTF.preload("/world/world01.glb");

@@ -114,7 +114,7 @@ const Home = () => {
           <ul className="ul-mint">
             <li>
               <a
-                href="https://twitter.com/shiloh_spirit"
+                href="https://twitter.com/spiritrealmart"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -123,13 +123,14 @@ const Home = () => {
             </li>
             <li>
               <a
-                href="https://twitter.com/shiloh_spirit/status/1606306292863492096"
+                href="https://twitter.com/spiritrealmart/status/1606306292863492096"
                 target="_blank"
                 rel="noreferrer"
               >
                 Retweet our pinned post
               </a>
             </li>
+            <li>Enter Your Twitter Name! ITS CASE SENSITIVE!</li>
             <li>Claim a free NFT</li>
           </ul>
         </div>

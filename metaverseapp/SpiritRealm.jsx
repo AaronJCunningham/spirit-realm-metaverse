@@ -10,7 +10,7 @@ import {
 import { CameraController } from "./camera/camera-controller";
 
 import { Collider } from "./collider/collider";
-import Space from "./test-assets/Space";
+import Space from "./world/Space";
 import { PlayerController } from "./player/player-controller";
 
 import { InputSystem } from "./input/input-system";
@@ -18,7 +18,7 @@ import { RemotePlayers } from "./remoteplayers/RemotePlayers";
 import { Chat } from "./chat/Chat";
 import Shader from "./shader/Portal";
 import { Ghost } from "./remoteplayers/Ghost10";
-import { PortalWorld } from "./test-assets/Portalworld15";
+import { PortalWorld } from "./world/Portalworld15";
 import { MetaMenu } from "./menu/MetaMenu";
 import { TextForMetaPage } from "./loading/TextForMetaPage";
 import { Instructions } from "./instructions/Instructions";

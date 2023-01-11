@@ -130,7 +130,7 @@ const Home = () => {
                 Retweet our pinned post
               </a>
             </li>
-            <li>Enter Your Twitter Name! ITS CASE SENSITIVE!</li>
+            <li>Enter Your Twitter Name!</li>
             <li>Claim a free NFT</li>
           </ul>
         </div>

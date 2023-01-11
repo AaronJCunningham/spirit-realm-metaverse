@@ -19,8 +19,9 @@ const fetchUser = async (username) => {
   if (atCheck) {
     username = username.slice(1);
   }
+  username = username.toLowerCase();
 
-  let followsUs = data.find((o) => o.username === username);
+  let followsUs = data.find((o) => o.username.toLowerCase() === username);
   let followBool = typeof followsUs === "object";
 
   if (username === "srpass") {

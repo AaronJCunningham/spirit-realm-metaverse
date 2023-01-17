@@ -19,3 +19,23 @@ export const useMobileInput = create((set) => ({
   pos: { x: 0, y: 0 },
   setPos: (pos) => set({ pos }),
 }));
+
+export const useHover = create((set) => ({
+  hover: false,
+  setHover: (hover) => set({ hover }),
+}));
+
+export const useSetExhibit = create((set) => ({
+  exhibit: {
+    bool: false,
+    portrait: false,
+    title: "",
+    description: "",
+    artist: "",
+    imageURL: "",
+    URL: "",
+    width: 1920,
+    height: 1080,
+  },
+  setExhibit: (exhibit) => set({ exhibit }),
+}));

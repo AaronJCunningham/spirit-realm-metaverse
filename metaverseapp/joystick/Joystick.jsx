@@ -12,7 +12,7 @@ export const MobileControls = () => {
 
     if (angle) {
       const { degree } = angle;
-      console.log(data.distance);
+
       if (degree !== 0) {
         if (degree >= 0 && degree <= 37.5) {
           setPos({ x: 1, y: 0 });

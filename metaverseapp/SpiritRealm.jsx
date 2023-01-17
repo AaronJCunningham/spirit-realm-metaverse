@@ -12,6 +12,7 @@ import { CameraController } from "./camera/camera-controller";
 import { Collider } from "./collider/collider";
 import Space from "./world/Space";
 import { PlayerController } from "./player/player-controller";
+import { useHover } from "./store/MetaStore";
 
 import { InputSystem } from "./input/input-system";
 import { RemotePlayers } from "./remoteplayers/RemotePlayers";
@@ -23,6 +24,8 @@ import { MetaMenu } from "./menu/MetaMenu";
 import { TextForMetaPage } from "./loading/TextForMetaPage";
 import { Instructions } from "./instructions/Instructions";
 import { MobileControls } from "./joystick/Joystick";
+import { Ghosts } from "./addons/Ghosts";
+import { ExhibitPopUp } from "./exhibitpopup/ExhibitPopUp";
 
 const FIXED_STEP = 1 / 60;
 
@@ -35,6 +38,7 @@ function Game({ isMobile }) {
     <Suspense>
       <InputSystem />
       <RemotePlayers />
+      {/* <Ghosts /> */}
       <Shader />
       <Collider autoUpdate debug>
         <PortalWorld />
@@ -45,14 +49,16 @@ function Game({ isMobile }) {
       <CameraController />
       {/* {isMobile && <Stats />} */}
       <Space />
-      <ambientLight intensity={0.4} />
-      <hemisphereLight intensity={1.2} color="#eacb6e" groundColor="blue" />
+      <ambientLight intensity={0.9} />
+      <hemisphereLight intensity={2} color="#eacb6e" groundColor="blue" />
     </Suspense>
   );
 }
 
 export default function SpiritRealm({ isMobile }) {
   const [loaded, setLoaded] = useState(false);
+
+  const [hover, setHover] = useHover((state) => [state.hover, state.setHover]);
 
   const { progress } = useProgress();
 
@@ -65,9 +71,10 @@ export default function SpiritRealm({ isMobile }) {
   }, [progress]);
 
   return (
-    <div className="canvas">
+    <div className="canvas" style={{ cursor: hover ? "pointer" : null }}>
       <Chat />
       <MetaMenu />
+      <ExhibitPopUp />
       {isMobile && <MobileControls />}
       {!loaded && <TextForMetaPage progress={progress} />}
       {loaded && <Instructions />}

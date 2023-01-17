@@ -1,0 +1,30 @@
+.artshow-container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.artshow-h4 {
+  color: $light-color;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.artshow-image-container {
+  border: 2px white solid;
+  width: 50%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.artshow-italics {
+  padding-top: 10px;
+  font-style: italic;
+  font-size: 0.9rem;
+}

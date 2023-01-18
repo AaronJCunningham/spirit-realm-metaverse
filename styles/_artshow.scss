@@ -28,3 +28,23 @@
   font-style: italic;
   font-size: 0.9rem;
 }
+// portrait.jsx
+
+.artshow-container-portrait {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.artshow-image-container-portrait {
+  border: 2px rgb(255, 255, 255) solid;
+  background-color: aqua;
+  margin: auto;
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+  overflow: hidden;
+}

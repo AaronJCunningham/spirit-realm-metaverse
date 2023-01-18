@@ -113,6 +113,7 @@ export function PortalWorld(props) {
           onClick={() =>
             setExhibit({
               bool: true,
+              portrait: true,
               title: "BizBuyer",
               description:
                 "This piece is one of the 490 AI-generated logos from Dotcom Séance. A project that utilized the sacred powers of AI and web3.0 to resurrect the dead companies from the infamous dotcom crash.",
@@ -133,6 +134,7 @@ export function PortalWorld(props) {
           onClick={() =>
             setExhibit({
               bool: true,
+              portrait: true,
               title: "i luv the way you care about my gardens",
               description: "2022 |ambient music by Charly Pœ |2500x2160 px",
               artist: "Simone Garcia",
@@ -152,6 +154,7 @@ export function PortalWorld(props) {
           onClick={() =>
             setExhibit({
               bool: true,
+              portrait: false,
               title: "Out of Gas and Desperate for Love",
               description: "resolution: 2160 x 2700px duration: 20s year: 2022",
               artist: "Parsa Mostaghim",
@@ -171,6 +174,7 @@ export function PortalWorld(props) {
           onClick={() =>
             setExhibit({
               bool: true,
+              portrait: true,
               title: "AI is watching",
               description: "What do you see in the changing world around us?",
               artist: "Rutger van der Tas ",
@@ -190,6 +194,7 @@ export function PortalWorld(props) {
           onClick={() =>
             setExhibit({
               bool: true,
+              portrait: false,
               title: "Seance",
               description:
                 "Seance depicts 5 witches summoning the power of Hecate in a dark forest.",

@@ -42,15 +42,16 @@ function Game({ isMobile }) {
       <Shader />
       <Collider autoUpdate debug>
         <PortalWorld />
+        ww
       </Collider>
       <PlayerController>
         <Ghost rotation={[0, -Math.PI, 0]} />
       </PlayerController>
       <CameraController />
-      {/* {isMobile && <Stats />} */}
+      <Stats />
       <Space />
-      <ambientLight intensity={0.9} />
-      <hemisphereLight intensity={2} color="#eacb6e" groundColor="blue" />
+      <ambientLight intensity={0.7} />
+      <hemisphereLight intensity={1.7} color="#eacb6e" groundColor="blue" />
     </Suspense>
   );
 }

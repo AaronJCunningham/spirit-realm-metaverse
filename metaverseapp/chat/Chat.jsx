@@ -4,7 +4,7 @@ import socket from "../socketUtlities/socketConnection";
 import { useChatFocus, useCustomName } from "../store/MetaStore";
 
 export const Chat = () => {
-  const [showChat, setShowChat] = useState(false);
+  const [showChat, setShowChat] = useState(true);
   const [chat, setChat] = useState("");
   const [remoteData, setRemoteData] = useState([
     { x: 0, y: 0, z: 0, id: "iug" },

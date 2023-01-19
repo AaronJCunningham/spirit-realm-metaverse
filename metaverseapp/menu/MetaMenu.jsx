@@ -53,7 +53,7 @@ export const MetaMenu = () => {
       console.log(username);
       socket.emit("customizeName", { id: socket.id, username: username });
     }
-  }, [customColor]);
+  }, [userName]);
 
   const onHandleNameInput = (event) => {
     setInputValue(event.target.value);

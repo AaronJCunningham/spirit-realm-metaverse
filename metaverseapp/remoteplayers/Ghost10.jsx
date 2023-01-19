@@ -56,7 +56,7 @@ export function Ghost(props) {
     if (move.x !== 0 || move.y !== 0) {
       setWalking(true);
     }
-    textRef.current.position.y = hoodie.current.position.y + 1.85;
+    // textRef.current.position.y = hoodie.current.position.y + 1.85;
     // group.current.position.y = -0.5;
 
     // mask.current.material.color.set(`${color}`);
@@ -75,18 +75,18 @@ export function Ghost(props) {
   return (
     <>
       <group ref={group} {...props} dispose={null} scale={0.35}>
-        <group ref={textRef}>
+        {/* <group ref={textRef}>
           <Billboard
             follow={true}
-            lockX={false}
-            lockY={false}
-            lockZ={false} // Lock the rotation on the z axis (default=false)
+            lockX={true}
+            lockY={true}
+            lockZ={true} // Lock the rotation on the z axis (default=false)
           >
             <Text anchorY="top" fontSize={0.15}>
               {userName ? userName : "Shiloh"}
             </Text>
           </Billboard>
-        </group>
+        </group> */}
 
         <group name="Scene">
           <group

@@ -39,9 +39,19 @@ export const MetaMenu = () => {
 
   useEffect(() => {
     if (localStorage.color !== undefined) {
-      const col = localStorage.getItem("color");
+      const col = JSON.parse(localStorage.getItem("color"));
+      setCustomColor(col);
       console.log(col);
       socket.emit("customizeColor", { id: socket.id, color: col });
+    }
+  }, [customColor]);
+
+  useEffect(() => {
+    if (localStorage.username !== undefined) {
+      const username = JSON.parse(localStorage.getItem("username"));
+      setUserName(username);
+      console.log(username);
+      socket.emit("customizeName", { id: socket.id, username: username });
     }
   }, [customColor]);
 
@@ -53,6 +63,7 @@ export const MetaMenu = () => {
     event.preventDefault();
 
     setUserName(inputValue);
+    localStorage.setItem("username", JSON.stringify(inputValue));
     socket.emit("customizeName", {
       id: socket.id,
       username: inputValue,

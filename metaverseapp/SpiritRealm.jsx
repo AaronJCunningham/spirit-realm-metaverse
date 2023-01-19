@@ -42,7 +42,6 @@ function Game({ isMobile }) {
       <Shader />
       <Collider autoUpdate debug>
         <PortalWorld />
-        ww
       </Collider>
       <PlayerController>
         <Ghost rotation={[0, -Math.PI, 0]} />

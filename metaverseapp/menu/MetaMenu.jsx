@@ -1,8 +1,6 @@
-import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { SketchPicker } from "react-color";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import Link from "next/link";
 
 import useMountTransition from "../hooks/useMountTrainsition";
 
@@ -15,7 +13,6 @@ import socket from "../socketUtlities/socketConnection";
 
 export const MetaMenu = () => {
   const [isMounted, setIsMounted] = useState(false);
-
   const [inputValue, setInputValue] = useState("");
 
   const [chatFocus, setChatFocus] = useChatFocus((state) => [
@@ -26,6 +23,7 @@ export const MetaMenu = () => {
     state.userName,
     state.setUserName,
   ]);
+
   const [customColor, setCustomColor] = useCustomColor((state) => [
     state.customColor,
     state.setCustomColor,
@@ -35,8 +33,17 @@ export const MetaMenu = () => {
 
   const handleChangeComplete = (col) => {
     setCustomColor(col.hex);
+    localStorage.setItem("color", JSON.stringify(col.hex));
     socket.emit("customizeColor", { id: socket.id, color: col.hex });
   };
+
+  useEffect(() => {
+    if (localStorage.color !== undefined) {
+      const col = localStorage.getItem("color");
+      console.log(col);
+      socket.emit("customizeColor", { id: socket.id, color: col });
+    }
+  }, [customColor]);
 
   const onHandleNameInput = (event) => {
     setInputValue(event.target.value);

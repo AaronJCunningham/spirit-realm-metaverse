@@ -1,5 +1,5 @@
 import io from "socket.io-client";
 
-const socket = io("ws://be.spiritrealm.art");
+const socket = io("ws://srbackend-production.up.railway.app");
 console.log("socket", socket);
 export default socket;

@@ -22,7 +22,7 @@ import { VolumeDebug } from "./bounding-volume/volume-debug";
 import { SmoothDamp } from "@gsimone/smoothdamp";
 import { useInputs } from "../input/input-controller";
 import socket from "../socketUtlities/socketConnection";
-import { useCustomColor } from "../store/MetaStore";
+import { useCustomColor, useCustomName } from "../store/MetaStore";
 
 export type CharacterControllerProps = {
   children: React.ReactNode;
@@ -61,6 +61,16 @@ export function CharacterController({
   const [character, setCharacter] = useCharacterController((state) => [
     state.character,
     state.setCharacter,
+  ]);
+
+  const [userName, setUserName] = useCustomName((state) => [
+    state.userName,
+    state.setUserName,
+  ]);
+
+  const [customColor, setCustomColor] = useCustomColor((state) => [
+    state.customColor,
+    state.setCustomColor,
   ]);
 
   const _debug =
@@ -374,6 +384,8 @@ export function CharacterController({
         qz: meshRef.current?.quaternion?.z,
         qw: meshRef.current?.quaternion?.w,
         walking: store.walking,
+        color: customColor,
+        username: userName,
       });
     }
   }

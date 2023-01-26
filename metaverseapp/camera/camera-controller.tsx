@@ -36,7 +36,7 @@ export function CameraController() {
 
   return (
     <OrbitControls
-      dampingFactor={0.1}
+      dampingFactor={0.05}
       ref={controlsRef}
       camera={camera}
       minDistance={1}

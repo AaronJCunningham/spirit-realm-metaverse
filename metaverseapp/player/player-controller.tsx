@@ -87,9 +87,11 @@ export function PlayerController({
 
       if (pos.x !== 0 || pos.y !== 0) {
         lerpMove.set(pos.x, pos.y);
+        console.log(pos.x, pos.y);
         move.lerp(lerpMove, 0.5);
       } else {
         move.set(moveInput.x, moveInput.y);
+        console.log(moveInput.x, moveInput.y);
       }
 
       const magnitude = Math.min(move.length(), 1);

@@ -12,34 +12,19 @@ export const MobileControls = () => {
 
     if (angle) {
       const { degree } = angle;
-
+      console.log(degree);
       if (degree !== 0) {
-        if (degree >= 0 && degree <= 37.5) {
+        if ((degree >= 0 && degree <= 45) || degree >= 315) {
           setPos({ x: 1, y: 0 });
         }
-        if (degree >= 322.5 && degree <= 360.01) {
-          setPos({ x: 1, y: 0 });
-        }
-        if (degree >= 37.5 && degree <= 62.5) {
-          setPos({ x: 1, y: 1 });
-        }
-        if (degree >= 62.501 && degree <= 127.5) {
+        if (degree >= 45 && degree <= 135) {
           setPos({ x: 0, y: 1 });
         }
-        if (degree >= 127.501 && degree <= 152.5) {
-          setPos({ x: -1, y: 1 });
-        }
-        if (degree >= 152.501 && degree <= 217.5) {
+        if (degree >= 135 && degree <= 225) {
           setPos({ x: -1, y: 0 });
         }
-        if (degree >= 217.501 && degree <= 242.5) {
-          setPos({ x: -1, y: -1 });
-        }
-        if (degree >= 242.501 && degree <= 307.5) {
+        if (degree >= 225 && degree <= 315) {
           setPos({ x: 0, y: -1 });
-        }
-        if (degree >= 307.501 && degree <= 322.5) {
-          setPos({ x: 1, y: -1 });
         }
       }
     }

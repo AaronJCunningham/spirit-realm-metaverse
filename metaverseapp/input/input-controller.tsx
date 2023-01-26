@@ -6,16 +6,18 @@ import {
   TouchDevice,
   VectorControl,
   processors,
-} from '@hmans/controlfreak';
-import { Stages, useUpdate } from '@react-three/fiber';
-import { useLayoutEffect, useRef, useState } from 'react';
-import create from 'zustand';
+} from "@hmans/controlfreak";
+import { Stages, useUpdate } from "@react-three/fiber";
+import { useLayoutEffect, useRef, useState } from "react";
+import create from "zustand";
+
+//types
 
 type ControllerState = {
   controller: CFController;
 };
 
-type Devices = 'keyboard' | 'gamepad' | 'touch';
+type Devices = "keyboard" | "gamepad" | "touch";
 type ActionDevices = {
   keyboard?: KeyboardDevice;
   gamepad?: GamepadDevice;
@@ -27,23 +29,29 @@ type InputControllerProps = {
   devices?: Devices | Devices[];
   actions: (devices: ActionDevices) => {
     [key: string]: {
-      type: 'vector' | 'boolean';
+      type: "vector" | "boolean";
       steps: any[];
     };
   };
   pause?: boolean;
 };
 
+//code
+// set controller as new hmans controller
 const useStore = create<ControllerState>(() => ({
   controller: new CFController(),
 }));
 
+//export inputcontroller
+
 export function InputController({
-  devices = ['keyboard', 'gamepad', 'touch'],
+  devices = ["keyboard", "gamepad", "touch"],
   actions: createActions,
   pause = false,
 }: InputControllerProps) {
-  const deviceMap = useRef<Map<string, KeyboardDevice | GamepadDevice | TouchDevice>>(new Map());
+  const deviceMap = useRef<
+    Map<string, KeyboardDevice | GamepadDevice | TouchDevice>
+  >(new Map());
   const controller = useStore((state) => state.controller);
 
   // Add devices
@@ -52,17 +60,17 @@ export function InputController({
     const _deviceMap = deviceMap.current;
     for (const device of _devices) {
       switch (device) {
-        case 'keyboard':
-          _deviceMap.set('keyboard', new KeyboardDevice());
-          controller.addDevice(_deviceMap.get('keyboard')!);
+        case "keyboard":
+          _deviceMap.set("keyboard", new KeyboardDevice());
+          controller.addDevice(_deviceMap.get("keyboard")!);
           break;
-        case 'gamepad':
-          _deviceMap.set('gamepad', new GamepadDevice());
-          controller.addDevice(_deviceMap.get('gamepad')!);
+        case "gamepad":
+          _deviceMap.set("gamepad", new GamepadDevice());
+          controller.addDevice(_deviceMap.get("gamepad")!);
           break;
-        case 'touch':
-          _deviceMap.set('touch', new TouchDevice());
-          controller.addDevice(_deviceMap.get('touch')!);
+        case "touch":
+          _deviceMap.set("touch", new TouchDevice());
+          controller.addDevice(_deviceMap.get("touch")!);
           break;
         default:
           throw new Error(`Unknown device: ${device}`);
@@ -84,10 +92,10 @@ export function InputController({
     for (const [key, value] of Object.entries(actions)) {
       let type;
       switch (value.type) {
-        case 'vector':
+        case "vector":
           type = VectorControl;
           break;
-        case 'boolean':
+        case "boolean":
           type = BooleanControl;
           break;
         default:

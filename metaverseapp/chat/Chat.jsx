@@ -5,7 +5,7 @@ import { useChatFocus, useCustomName } from "../store/MetaStore";
 
 export const Chat = () => {
   const [showChat, setShowChat] = useState(true);
-  const [chat, setChat] = useState("");
+  const [chat, setChat] = useState([]);
   const [remoteData, setRemoteData] = useState([
     { x: 0, y: 0, z: 0, id: "iug" },
   ]);
@@ -24,7 +24,8 @@ export const Chat = () => {
 
   useEffect(() => {
     socket.on("chat", (data) => {
-      setChat(data.chatArray);
+      setChat(data.chatArray.array);
+      console.log("chat data", data);
     });
   }, []);
 
@@ -34,15 +35,9 @@ export const Chat = () => {
     setOld((prev) => [chat.message, ...prev]);
   }, [chat]);
 
-  const oldChats = old.filter((x) => {
-    return x !== undefined;
-  });
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     socket.emit("chat", {
-      id: id,
       message: `${userName ? userName : "Shiloh"}: ${input}`,
     });
     const el = document.getElementById("chat");
@@ -57,12 +52,12 @@ export const Chat = () => {
       <div className="chat_tab" onClick={() => setShowChat(!showChat)}>
         Chat
       </div>
-      {chat && (
+      {showChat && (
         <div className="chat_bg">
-          {chat.reverse().map((chat, index) => {
+          {chat.map((chat, index) => {
             return (
               <div className="individual_chat" key={index}>
-                {chat.message}
+                {chat}
               </div>
             );
           })}

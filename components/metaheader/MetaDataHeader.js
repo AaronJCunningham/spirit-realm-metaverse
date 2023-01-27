@@ -33,8 +33,6 @@ const MetaDataHeader = ({
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <meta name="yandex-verification" content="8d5b06a83511cd21" />
-      <meta name="yandex-verification" content="40d3ee27c5c10562" />
     </Head>
   );
 };

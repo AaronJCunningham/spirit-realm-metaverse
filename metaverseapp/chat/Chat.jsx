@@ -3,7 +3,7 @@ import { useState } from "react";
 import socket from "../socketUtlities/socketConnection";
 import { useChatFocus, useCustomName } from "../store/MetaStore";
 
-export const Chat = () => {
+export const Chat = ({ loaded }) => {
   const [showChat, setShowChat] = useState(true);
   const [chat, setChat] = useState([]);
   const [remoteData, setRemoteData] = useState([
@@ -17,6 +17,7 @@ export const Chat = () => {
     state.chatFocus,
     state.setChatFocus,
   ]);
+
   const [userName, setUserName] = useCustomName((state) => [
     state.userName,
     state.setUserName,
@@ -47,7 +48,7 @@ export const Chat = () => {
 
   // note
 
-  return (
+  return loaded ? (
     <div className="chat_container">
       <div className="chat_tab" onClick={() => setShowChat(!showChat)}>
         Chat
@@ -77,5 +78,5 @@ export const Chat = () => {
         </div>
       )}
     </div>
-  );
+  ) : null;
 };

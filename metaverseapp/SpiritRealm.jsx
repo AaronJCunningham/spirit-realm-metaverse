@@ -72,8 +72,8 @@ export default function SpiritRealm({ isMobile }) {
 
   return (
     <div className="canvas" style={{ cursor: hover ? "pointer" : null }}>
-      <Chat />
-      <MetaMenu />
+      <Chat loaded={loaded} />
+      {loaded && <MetaMenu />}
       <ExhibitPopUp />
       {isMobile && <MobileControls />}
       {!loaded && <TextForMetaPage progress={progress} />}

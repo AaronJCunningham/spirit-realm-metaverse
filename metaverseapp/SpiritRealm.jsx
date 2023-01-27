@@ -47,7 +47,7 @@ function Game({ isMobile }) {
         <Ghost rotation={[0, -Math.PI, 0]} />
       </PlayerController>
       <CameraController />
-      <Stats />
+      {/* <Stats /> */}
       <Space />
       <ambientLight intensity={0.7} />
       <hemisphereLight intensity={1.7} color="#eacb6e" groundColor="blue" />

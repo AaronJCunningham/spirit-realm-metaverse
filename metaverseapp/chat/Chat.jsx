@@ -24,7 +24,7 @@ export const Chat = () => {
 
   useEffect(() => {
     socket.on("chat", (data) => {
-      setChat(data);
+      setChat(data.chatArray);
     });
   }, []);
 
@@ -57,18 +57,15 @@ export const Chat = () => {
       <div className="chat_tab" onClick={() => setShowChat(!showChat)}>
         Chat
       </div>
-      {showChat && (
+      {chat && (
         <div className="chat_bg">
-          {oldChats
-            .slice(0, 5)
-            .reverse()
-            .map((chat, index) => {
-              return (
-                <div className="individual_chat" key={index}>
-                  {chat}
-                </div>
-              );
-            })}
+          {chat.reverse().map((chat, index) => {
+            return (
+              <div className="individual_chat" key={index}>
+                {chat.message}
+              </div>
+            );
+          })}
           <div>
             <form onSubmit={handleSubmit}>
               <input

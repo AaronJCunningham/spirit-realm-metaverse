@@ -9,7 +9,7 @@ import { useHover, useSetExhibit } from "../store/MetaStore";
 import Router from "next/router";
 
 export function PortalWorld(props) {
-  const { scene, nodes } = useGLTF("/world/world09.glb");
+  const { scene, nodes } = useGLTF("/world/world11.glb");
   const [hover, setHover] = useHover((state) => [state.hover, state.setHover]);
   const [exhibit, setExhibit] = useSetExhibit((state) => [
     state.exhibit,
@@ -33,14 +33,13 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: false,
-            title: "Planetary Alignment",
-            description:
-              "This piece is emblematic of the recurring elements in the artist's work, symbolized as a planet; as every creator is the author of their own world.",
-            artist: "Carmilla Sumantry",
+            artist: "Hayden Clay",
+            title: "Big City Pipe Dream",
+            description: "A familiar train heads towards an unknown future.",
             imageURL: "/show/01.jpg",
-            URL: "https://superrare.com/0xe9ff2190f3832936d4b9919b71cef39eb13a4757/planetary-alignment-1",
-            width: 1447,
-            height: 811,
+            URL: "https://superrare.com/artwork-v2/big-city-pipe-dream-37872",
+            width: 600,
+            height: 400,
           })
         }
         onPointerOver={handleHoverIn}
@@ -53,14 +52,13 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            title: "SHORT TERM MEMORIES",
-            description:
-              "1800x2700 px | 00:36 mp4 | 2018 | Unique Sound design @raum_antibodylabel",
-            artist: "Olga Fedorova",
-            imageURL: "/show/02.png",
-            URL: "https://foundation.app/@olgamikhfedorova/foundation/113570",
-            width: 175,
-            height: 256,
+            artist: "Lydia Pourmand",
+            title: "Valley of mystical experiances",
+            description: "",
+            imageURL: "/show/02.jpg",
+            URL: "https://foundation.app/@Lydia_Pourmand/haft7/4",
+            width: 393,
+            height: 496,
           })
         }
         onPointerOver={handleHoverIn}
@@ -73,14 +71,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: false,
-            title: "Hiru",
+            artist: "Zoe Osborne",
+            title: "Summer Dream",
             description:
-              "'Hiru' is an audio visual exploration of a life cycle of consciousness.",
-            artist: "Ellie Pritts",
+              "A realization of my dream state memory of summer in the Caribbean.",
             imageURL: "/show/03.jpg",
-            URL: "https://superrare.com/0xd8c9c3a2724e703c0ca7d205f16aff8acaac9994/hiru-5",
-            width: 1331,
-            height: 753,
+            URL: "https://superrare.com/artwork-v2/summer-dream-35326",
+            width: 956,
+            height: 537,
           })
         }
         onPointerOver={handleHoverIn}
@@ -93,14 +91,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            title: "BizBuyer",
+            artist: "Megs",
+            title: "Ad Maiorem Dei Gloriam",
             description:
-              "This piece is one of the 490 AI-generated logos from Dotcom Séance. A project that utilized the sacred powers of AI and web3.0 to resurrect the dead companies from the infamous dotcom crash.",
-            artist: "Guile Twardowski",
+              "We are not human beings having a spiritual experience. We are spiritual beings having a human experience. ― Pierre Teilhard de Chardin",
             imageURL: "/show/04.jpg",
-            URL: "https://opensea.io/assets/ethereum/0x6ca044fb1cd505c1db4ef7332e73a236ad6cb71c/420",
-            width: 804,
-            height: 805,
+            URL: "https://www.niftygateway.com/marketplace/collection/0x7603da3ce5ca9d7041db95ecf8a3113b1e097426/1?filters%5bonSale%5d=true&sortBy=lowest",
+            width: 394,
+            height: 707,
           })
         }
         onPointerOver={handleHoverIn}
@@ -112,14 +110,14 @@ export function PortalWorld(props) {
         onClick={() =>
           setExhibit({
             bool: true,
-            portrait: true,
-            title: "i luv the way you care about my gardens",
-            description: "2022 |ambient music by Charly Pœ |2500x2160 px",
-            artist: "Simone Garcia",
+            portrait: false,
+            artist: "Gael Corboz",
+            title: "Lake World",
+            description: "An immersive and a dreamy vision about a Lake World.",
             imageURL: "/show/05.jpg",
-            URL: "https://superrare.com/artwork-v2/i-luv-the-way-you-care-about-my-gardens-34423",
-            width: 470,
-            height: 485,
+            URL: "https://foundation.app/@gaelcorboz/foundation/91441",
+            width: 884,
+            height: 495,
           })
         }
         onPointerOver={handleHoverIn}
@@ -132,13 +130,13 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: false,
-            title: "Out of Gas and Desperate for Love",
-            description: "resolution: 2160 x 2700px duration: 20s year: 2022",
-            artist: "Parsa Mostaghim",
+            artist: "Ashmit Galav",
+            title: "The hues of dreams and insomnia",
+            description: "2022 |ambient music by Charly Pœ |2500x2160 px",
             imageURL: "/show/06.jpg",
-            URL: "https://foundation.app/@parsa.mostaghim/everyday/18",
-            width: 866,
-            height: 690,
+            URL: "https://foundation.app/@ashmitgalav/a-town-on-the-hill/2",
+            width: 740,
+            height: 492,
           })
         }
         onPointerOver={handleHoverIn}
@@ -151,13 +149,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            title: "AI is watching",
-            description: "What do you see in the changing world around us?",
-            artist: "Rutger van der Tas ",
+            artist: "Alphacoded",
+            title: "CO-EXISTENCE",
+            description:
+              "CO-EXISTENCE is a vision where technology and nature not only live in harmony but where they also complement each other, helping them grow.",
             imageURL: "/show/07.jpg",
-            URL: "https://objkt.com/asset/KT19gfyncsoejGLy8YnVAZTXKAzjSACgr9vB/0",
-            width: 275,
-            height: 490,
+            URL: "https://foundation.app/@alphacoded/alphacoded/1",
+            width: 391,
+            height: 492,
           })
         }
         onPointerOver={handleHoverIn}
@@ -170,14 +169,13 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: false,
-            title: "Seance",
-            description:
-              "Seance depicts 5 witches summoning the power of Hecate in a dark forest.",
-            artist: "Cait Lamas",
+            artist: "Aminta",
+            title: "Phoenix",
+            description: "The art of being born again",
             imageURL: "/show/08.jpg",
-            URL: "https://foundation.app/@ghostrystore/cim-0c78/2",
-            width: 852,
-            height: 487,
+            URL: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/68577918657260116225703496345703567072030071602567565705736853955196221390849",
+            width: 731,
+            height: 489,
           })
         }
         onPointerOver={handleHoverIn}

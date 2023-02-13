@@ -1,8 +1,8 @@
 import Head from "next/head";
 
 const MetaDataHeader = ({
-  title = "Shiloh",
-  content = "In Shiloh and the Spirit Realm, we see how web3 technology can be used to create new and innovative forms of storytelling. The story follows our protagonist, Shiloh, who discovers a mysterious mask and, upon wearing it, is transported to the Spirit Realm, a parallel world inhabited by spirits. In this new realm, Shiloh must embark on a journey to find his true identity and ultimately return to the land of the living. The outcome of Shiloh's journey will be decided by our community; NFT holders can vote on what happens next as each new chapter unfolds.",
+  title = "Metaverse",
+  content = "The Spirit Realm we use web3 technology to create new and innovative forms of storytelling. The story follows our protagonist, Shiloh, who discovers a mysterious mask and, upon wearing it, is transported to the Spirit Realm, a parallel world inhabited by spirits. In this new realm, Shiloh must embark on a journey to find his true identity and ultimately return to the land of the living. The outcome of Shiloh's journey will be decided by our community; NFT holders can vote on what happens next as each new chapter unfolds.",
   image = "https://ik.imagekit.io/fx30u3wgcqib/web_cover_mHVP-euiV.jpg",
 }) => {
   return (

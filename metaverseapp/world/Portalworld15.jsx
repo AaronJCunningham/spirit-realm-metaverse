@@ -9,7 +9,7 @@ import { useHover, useSetExhibit } from "../store/MetaStore";
 import Router from "next/router";
 
 export function PortalWorld(props) {
-  const { scene, nodes } = useGLTF("/world/world11.glb");
+  const { scene, nodes } = useGLTF("/world/world14.glb");
   const [hover, setHover] = useHover((state) => [state.hover, state.setHover]);
   const [exhibit, setExhibit] = useSetExhibit((state) => [
     state.exhibit,
@@ -32,14 +32,15 @@ export function PortalWorld(props) {
         onClick={() =>
           setExhibit({
             bool: true,
-            portrait: false,
-            artist: "Hayden Clay",
-            title: "Big City Pipe Dream",
-            description: "A familiar train heads towards an unknown future.",
+            portrait: true,
+            artist: "Tripura",
+            title: "Hydra",
+            description:
+              "My work is primarily concerned with the theme of nature-human interaction. This particular project is devoted to the topic of human physicality. Such modern philosophers as Yuval Arari and Daniel Kahneman believe that in the near future technology is expected to become a significant part of our new physicality: their opinion is based on the fact that the current rate of change in the human world is occurring at an exponentially increasingly pace. In my pieces, I propose an alternative scenario, where the human body develops not in the technological direction, but rather a natural symbiosis, resulting in the synthesis of new life forms - no longer human, though not yet plant or animal: but a borderline form.",
             imageURL: "/show/01.jpg",
-            URL: "https://superrare.com/artwork-v2/big-city-pipe-dream-37872",
-            width: 600,
-            height: 400,
+            URL: "https://app.manifold.xyz/c/Tripura-edition",
+            width: 822,
+            height: 1460,
           })
         }
         onPointerOver={handleHoverIn}
@@ -52,13 +53,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Lydia Pourmand",
-            title: "Valley of mystical experiances",
-            description: "",
+            artist: "Tabitha Swanson & Balfua",
+            title: "twytholemew's mask in the glass flame grass patch of shame",
+            description:
+              "1 of 8 mystical totems rendered by tabitha swanson and balfua, created utilizing virtual reality modeling and blender with special ancient unknown techniques",
             imageURL: "/show/02.jpg",
-            URL: "https://foundation.app/@Lydia_Pourmand/haft7/4",
-            width: 393,
-            height: 496,
+            URL: "https://objkt.com/asset/KT1EPzDE4JKWK3EBy46rm3JaWfMVbvWaTkjh/0",
+            width: 2000,
+            height: 2000,
           })
         }
         onPointerOver={handleHoverIn}
@@ -70,15 +72,14 @@ export function PortalWorld(props) {
         onClick={() =>
           setExhibit({
             bool: true,
-            portrait: false,
-            artist: "Zoe Osborne",
-            title: "Summer Dream",
-            description:
-              "A realization of my dream state memory of summer in the Caribbean.",
+            portrait: true,
+            artist: "Violet Forest",
+            title: "Silk ‧͙⁺˚ ⁺ Satin ‧͙⁺˚ ⁺ Flowers ‧͙⁺˚ ⁺ Melted Wax",
+            description: "GAN generated 2048 x 2048 9 seconds looping",
             imageURL: "/show/03.jpg",
-            URL: "https://superrare.com/artwork-v2/summer-dream-35326",
-            width: 956,
-            height: 537,
+            URL: "https://foundation.app/@violetforest/foundation/93005",
+            width: 504,
+            height: 507,
           })
         }
         onPointerOver={handleHoverIn}
@@ -91,14 +92,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Megs",
-            title: "Ad Maiorem Dei Gloriam",
+            artist: "Megan Majewski",
+            title: "Quiet Reflection",
             description:
-              "We are not human beings having a spiritual experience. We are spiritual beings having a human experience. ― Pierre Teilhard de Chardin",
+              "My pieces from the Poetry of Flowers collection, speak on themes of life, death and reincarnation while using the language of flowers.",
             imageURL: "/show/04.jpg",
-            URL: "https://www.niftygateway.com/marketplace/collection/0x7603da3ce5ca9d7041db95ecf8a3113b1e097426/1?filters%5bonSale%5d=true&sortBy=lowest",
-            width: 394,
-            height: 707,
+            URL: "https://foundation.app/@deadkittie/Poetry-of-flowers/1",
+            width: 461,
+            height: 459,
           })
         }
         onPointerOver={handleHoverIn}
@@ -110,14 +111,15 @@ export function PortalWorld(props) {
         onClick={() =>
           setExhibit({
             bool: true,
-            portrait: false,
-            artist: "Gael Corboz",
-            title: "Lake World",
-            description: "An immersive and a dreamy vision about a Lake World.",
+            portrait: true,
+            artist: "Nicoleta Mureş",
+            title: "Last Coffee",
+            description:
+              "These strange creatures,  inhabitants of the personal profile with personalized avatars, are constantly feeding on their feed. They are the weavers of the WWW, which is likely to be a dangerous and potentially toxic mix of rumour, gossip, conspiracy, lies and misinformation.",
             imageURL: "/show/05.jpg",
-            URL: "https://foundation.app/@gaelcorboz/foundation/91441",
-            width: 884,
-            height: 495,
+            URL: "https://www.voice.com/creation/200000000003855",
+            width: 1920,
+            height: 1663,
           })
         }
         onPointerOver={handleHoverIn}
@@ -130,13 +132,13 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: false,
-            artist: "Ashmit Galav",
-            title: "The hues of dreams and insomnia",
-            description: "2022 |ambient music by Charly Pœ |2500x2160 px",
+            artist: "Formless",
+            title: "Who wrote our song by Taylor Swift?",
+            description: "It's all mine",
             imageURL: "/show/06.jpg",
-            URL: "https://foundation.app/@ashmitgalav/a-town-on-the-hill/2",
-            width: 740,
-            height: 492,
+            URL: "https://foundation.app/@formless/spit/7",
+            width: 828,
+            height: 465,
           })
         }
         onPointerOver={handleHoverIn}
@@ -149,14 +151,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Alphacoded",
-            title: "CO-EXISTENCE",
+            artist: "Maritei",
+            title: "Cyber Angel",
             description:
-              "CO-EXISTENCE is a vision where technology and nature not only live in harmony but where they also complement each other, helping them grow.",
+              "The fist piece I ever minted, in 2020. The advent of a Love Apocalypse ",
             imageURL: "/show/07.jpg",
-            URL: "https://foundation.app/@alphacoded/alphacoded/1",
-            width: 391,
-            height: 492,
+            URL: "https://foundation.app/@mariteiei/foundation/71614",
+            width: 423,
+            height: 508,
           })
         }
         onPointerOver={handleHoverIn}
@@ -168,14 +170,15 @@ export function PortalWorld(props) {
         onClick={() =>
           setExhibit({
             bool: true,
-            portrait: false,
-            artist: "Aminta",
-            title: "Phoenix",
-            description: "The art of being born again",
+            portrait: true,
+            artist: "Saida Saetgar",
+            title: "Artificial Soul",
+            description:
+              "Artificial soul is a lab-grown digital entity that represents a midpoint between plant and intelligent cyborg. With its unique features, it offers a communication experience unlike any other. Its vibrant colored signals and fluid-like intelligent haptic system serve as a language of their own, sensing your mood and adapting accordingly at every moment.",
             imageURL: "/show/08.jpg",
-            URL: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/68577918657260116225703496345703567072030071602567565705736853955196221390849",
-            width: 731,
-            height: 489,
+            URL: "https://www.instagram.com/p/CLNVmkiH-J_/?next=%2F",
+            width: 606,
+            height: 755,
           })
         }
         onPointerOver={handleHoverIn}

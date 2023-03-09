@@ -16,8 +16,11 @@ export function PortalWorld(props) {
     state.setExhibit,
   ]);
 
-  const handleHoverIn = () => {
-    setHover(true);
+  const handleHoverIn = (element) => {
+    console.log(element.distance);
+    if (element.distance <= 15) {
+      setHover(true);
+    }
   };
   const handleHoverOut = () => {
     setHover(false);

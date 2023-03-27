@@ -9,7 +9,7 @@ import { useHover, useSetExhibit } from "../store/MetaStore";
 import Router from "next/router";
 
 export function PortalWorld(props) {
-  const { scene, nodes } = useGLTF("/world/world14.glb");
+  const { scene, nodes } = useGLTF("/world/world17.glb");
   const [hover, setHover] = useHover((state) => [state.hover, state.setHover]);
   const [exhibit, setExhibit] = useSetExhibit((state) => [
     state.exhibit,
@@ -35,14 +35,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Tripura",
-            title: "Hydra",
+            artist: "Mieke Marple",
+            title: "Medusa 536",
             description:
-              "My work is primarily concerned with the theme of nature-human interaction. This particular project is devoted to the topic of human physicality. Such modern philosophers as Yuval Arari and Daniel Kahneman believe that in the near future technology is expected to become a significant part of our new physicality: their opinion is based on the fact that the current rate of change in the human world is occurring at an exponentially increasingly pace. In my pieces, I propose an alternative scenario, where the human body develops not in the technological direction, but rather a natural symbiosis, resulting in the synthesis of new life forms - no longer human, though not yet plant or animal: but a borderline form.",
+              "Medusa 536 is part of the Marple's Medusa Collection, a set of unique generative NFTs reframing the Medusa myth. The collection, made using a combination of analog and digital techniques, is based on Marple’s paintings of canonical Italian sculptures of Medusa. Medusa 536, specifically, is based on Gian Lorenzo's bust of Medusa from 1640. Marple has been working with Medusa as a subject since discovernig that —  according to Ovid’s Metamorphoses from 8 AD — Medusa was raped by the god Poseidon and then turned into a monster by his wife, the god Athena. That this part of the story is rarely discussed felt indicative of the way countless groups are marginalized in the tales we take for granted as “history.",
             imageURL: "/show/01.jpg",
-            URL: "https://app.manifold.xyz/c/Tripura-edition",
-            width: 822,
-            height: 1460,
+            URL: "https://opensea.io/assets/ethereum/0x259cf26dd6172728c6f8e0e6ae5b16e1b9d65df6/536",
+            width: 547,
+            height: 703,
           })
         }
         onPointerOver={handleHoverIn}
@@ -55,14 +55,13 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Tabitha Swanson & Balfua",
-            title: "twytholemew's mask in the glass flame grass patch of shame",
-            description:
-              "1 of 8 mystical totems rendered by tabitha swanson and balfua, created utilizing virtual reality modeling and blender with special ancient unknown techniques",
+            artist: "Chole Karayia",
+            title: "Cyber Skin",
+            description: "A digital servant, friend or self reflection?",
             imageURL: "/show/02.jpg",
-            URL: "https://objkt.com/asset/KT1EPzDE4JKWK3EBy46rm3JaWfMVbvWaTkjh/0",
-            width: 2000,
-            height: 2000,
+            URL: "",
+            width: 800,
+            height: 800,
           })
         }
         onPointerOver={handleHoverIn}
@@ -74,14 +73,14 @@ export function PortalWorld(props) {
         onClick={() =>
           setExhibit({
             bool: true,
-            portrait: true,
-            artist: "Violet Forest",
-            title: "Silk ‧͙⁺˚ ⁺ Satin ‧͙⁺˚ ⁺ Flowers ‧͙⁺˚ ⁺ Melted Wax",
-            description: "GAN generated 2048 x 2048 9 seconds looping",
+            portrait: false,
+            artist: "Carrie Able",
+            title: "symbiosis",
+            description: "Virtual Reality painting still image. ",
             imageURL: "/show/03.jpg",
-            URL: "https://foundation.app/@violetforest/foundation/93005",
-            width: 504,
-            height: 507,
+            URL: "",
+            width: 812,
+            height: 812,
           })
         }
         onPointerOver={handleHoverIn}
@@ -94,14 +93,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Megan Majewski",
-            title: "Quiet Reflection",
+            artist: "Aguri Sagimori",
+            title: "MMMME – Sapph – ",
             description:
-              "My pieces from the Poetry of Flowers collection, speak on themes of life, death and reincarnation while using the language of flowers.",
+              '""MMMME"" is a chimera with four eyes, a fusion of human and cat."',
             imageURL: "/show/04.jpg",
-            URL: "https://foundation.app/@deadkittie/Poetry-of-flowers/1",
-            width: 461,
-            height: 459,
+            URL: "",
+            width: 624,
+            height: 811,
           })
         }
         onPointerOver={handleHoverIn}
@@ -114,14 +113,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Nicoleta Mureş",
-            title: "Last Coffee",
+            artist: "Operator",
+            title: "Line Scanner (Herbert W. Franke Tribute Edition)",
             description:
-              "These strange creatures,  inhabitants of the personal profile with personalized avatars, are constantly feeding on their feed. They are the weavers of the WWW, which is likely to be a dangerous and potentially toxic mix of rumour, gossip, conspiracy, lies and misinformation.",
+              "Line Scanner (Herbert W. Franke Tribute Edition) is an excerpt from Line Scanner (2016), the first artwork by Ania Catherine and Dejha Ti, known as Operator. Line Scanner merges computer graphics and performance; it was created through Dejha Ti live triggering animations, video mapped onto Ania Catherine’s improvised movement from a projector suspended 11 meters above. The full length version of Line Scanner has been exhibited at CICA Museum in Korea, CADAF NYC, and film festivals internationally.          This edition is released on the occasion of the Tribute to Herbert W. Franke, as it realizes Franke's observation made decades earlier that ...the emergence of computer graphics could lead into other, quite different directions, for instance to unconventional, nondeterministic forms of theater (Computer Graphics — Computer Art, 1971).",
             imageURL: "/show/05.jpg",
-            URL: "https://www.voice.com/creation/200000000003855",
-            width: 1920,
-            height: 1663,
+            URL: "https://www.operator.la/line-scanner-hwf",
+            width: 802,
+            height: 802,
           })
         }
         onPointerOver={handleHoverIn}
@@ -133,14 +132,15 @@ export function PortalWorld(props) {
         onClick={() =>
           setExhibit({
             bool: true,
-            portrait: false,
-            artist: "Formless",
-            title: "Who wrote our song by Taylor Swift?",
-            description: "It's all mine",
+            portrait: true,
+            artist: "Anne Spalter",
+            title: "Karyk",
+            description:
+              "We float untethered in a corporate metaverse, ungrounded and drifting, digitally painted and virtually constructed. How do we see ourselves reflected back in and through the screens we stare at all day? Combining my ongoing work with inflatables and industrial landscapes I have been developing a series of metaversal avatars, at once playful and slightly menacing, brightly colored but ominous in their rudimentary forms. Each is an alter ego, a companion, a manifestation made of air and pixels and electricity.",
             imageURL: "/show/06.jpg",
-            URL: "https://foundation.app/@formless/spit/7",
-            width: 828,
-            height: 465,
+            URL: "",
+            width: 794,
+            height: 455,
           })
         }
         onPointerOver={handleHoverIn}
@@ -153,14 +153,13 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Maritei",
-            title: "Cyber Angel",
-            description:
-              "The fist piece I ever minted, in 2020. The advent of a Love Apocalypse ",
+            artist: "The Josh Craig",
+            title: "[SHCA001] SPACE+TIME+ZERO",
+            description: " A chromatic representation of an optical illusion",
             imageURL: "/show/07.jpg",
-            URL: "https://foundation.app/@mariteiei/foundation/71614",
-            width: 423,
-            height: 508,
+            URL: "",
+            width: 603,
+            height: 813,
           })
         }
         onPointerOver={handleHoverIn}
@@ -173,14 +172,14 @@ export function PortalWorld(props) {
           setExhibit({
             bool: true,
             portrait: true,
-            artist: "Saida Saetgar",
-            title: "Artificial Soul",
+            artist: "Ana María Caballero",
+            title: "Fathomless",
             description:
-              "Artificial soul is a lab-grown digital entity that represents a midpoint between plant and intelligent cyborg. With its unique features, it offers a communication experience unlike any other. Its vibrant colored signals and fluid-like intelligent haptic system serve as a language of their own, sensing your mood and adapting accordingly at every moment.",
+              "A spoken-word poem by award-winning poet + artist Ana María Caballero that weaves in and out of the tangled matrix of parental fear, without seeking to map it. From Caballero’s “Ways to Misspell Obsidian” collection, created in partnership with acclaimed London art gallery GAZELL.iO.",
             imageURL: "/show/08.jpg",
-            URL: "https://www.instagram.com/p/CLNVmkiH-J_/?next=%2F",
-            width: 606,
-            height: 755,
+            URL: "https://nft.gazell.io/products/fathomless-1",
+            width: 806,
+            height: 808,
           })
         }
         onPointerOver={handleHoverIn}

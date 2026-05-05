@@ -4,9 +4,7 @@ const client = new Client();
 
 async function connect() {
   if (!client.isOpen()) {
-    await client.open(
-      "REDIS_URL_REMOVED"
-    );
+    await client.open(process.env.REDIS_URL!);
   }
 }
 
@@ -19,7 +17,7 @@ let schema = new Schema(
   },
   {
     dataStructure: "JSON",
-  }
+  },
 );
 
 export async function createUser(data: { username: string }) {

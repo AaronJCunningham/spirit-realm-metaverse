@@ -11,8 +11,7 @@ const fetchTwitterUser = async (): Promise<boolean> => {
     "https://api.twitter.com/2/tweets/1548036479187685380/retweeted_by",
     {
       headers: {
-        Authorization:
-          "Bearer TWITTER_BEARER_TOKEN_REMOVED",
+        Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
       },
     }
   );

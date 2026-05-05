@@ -14,8 +14,7 @@ const fetchUser = async (username: string): Promise<boolean> => {
     "https://api.twitter.com/2/users/1070638897133166592/followers?max_results=1000",
     {
       headers: {
-        Authorization:
-          "Bearer TWITTER_BEARER_TOKEN_REMOVED",
+        Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
       },
     }
   );

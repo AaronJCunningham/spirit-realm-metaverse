@@ -1,10 +1,13 @@
-// You might want to store this in an environment variable or something
-const axios = require("axios");
+import axios from "axios";
 
-const fetchTwitterUser = async () => {
+interface TwitterUser {
+  username: string;
+}
+
+const fetchTwitterUser = async (): Promise<boolean> => {
   let {
     data: { data },
-  } = await axios(
+  } = await axios<{ data: TwitterUser[] }>(
     "https://api.twitter.com/2/tweets/1548036479187685380/retweeted_by",
     {
       headers: {
@@ -14,7 +17,6 @@ const fetchTwitterUser = async () => {
     }
   );
 
-  // const test = JSON.parse(twitter_user);
   let retweetObj = data.find((o) => o.username === "whostherplease");
   let retweetBool = typeof retweetObj === "object";
 

@@ -1,4 +1,9 @@
-export const TextForLandingPage = ({ progress, isMobile }) => {
+interface TextForLandingPageProps {
+  progress: number;
+  isMobile?: boolean;
+}
+
+export const TextForLandingPage = ({ progress, isMobile }: TextForLandingPageProps) => {
   return (
     <div className="welcome_container">
       <div className="welcome_message">

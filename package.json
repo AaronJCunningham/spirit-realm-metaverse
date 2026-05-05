@@ -38,7 +38,6 @@
     "react-icons": "^4.7.1",
     "react-joystick-component": "^6.0.0",
     "react-nipple": "^1.0.2",
-    "react-nipple-workpace": "^1.0.0",
     "react-spring": "^9.6.0",
     "react-three-fpscontrols": "^0.2.0",
     "redis-om": "^0.3.6",
@@ -51,6 +50,10 @@
   },
   "devDependencies": {
     "eslint": "^8.16.0",
-    "eslint-config-next": "^12.1.6"
+    "eslint-config-next": "^12.1.6",
+    "typescript": "^5.5.4",
+    "@types/node": "^20.14.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0"
   }
 }

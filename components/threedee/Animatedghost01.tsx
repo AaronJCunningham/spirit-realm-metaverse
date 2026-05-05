@@ -7,8 +7,8 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 
 import { useFrame } from "@react-three/fiber";
 
-export function Ghost(props) {
-  const group = useRef();
+export function Ghost(props: any) {
+  const group = useRef<any>(null);
   const { nodes, materials, animations } = useGLTF("/animatedghost01.glb");
   const { actions } = useAnimations(animations, group);
 

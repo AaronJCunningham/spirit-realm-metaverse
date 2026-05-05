@@ -1,11 +1,17 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+interface MetaDataHeaderProps {
+  title?: string;
+  content?: string;
+  image?: string;
+}
+
 const MetaDataHeader = ({
   title = "Metaverse",
   content = "The Spirit Realm we use web3 technology to create new and innovative forms of storytelling. The story follows our protagonist, Shiloh, who discovers a mysterious mask and, upon wearing it, is transported to the Spirit Realm, a parallel world inhabited by spirits. In this new realm, Shiloh must embark on a journey to find his true identity and ultimately return to the land of the living. The outcome of Shiloh's journey will be decided by our community; NFT holders can vote on what happens next as each new chapter unfolds.",
   image = "https://ik.imagekit.io/fx30u3wgcqib/web_cover_mHVP-euiV.jpg",
-}) => {
+}: MetaDataHeaderProps) => {
   const router = useRouter();
   const canonicalUrl = (
     `https://spiritrealm.art` + (router.asPath === "/" ? "" : router.asPath)

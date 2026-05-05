@@ -1,11 +1,16 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
 import { createUser, searchUsers } from "../../lib/redis";
 
-const fetchUser = async (username) => {
+interface TwitterUser {
+  username: string;
+}
+
+const fetchUser = async (username: string): Promise<boolean> => {
   let {
     data: { data },
-  } = await axios(
+  } = await axios<{ data: TwitterUser[] }>(
     "https://api.twitter.com/2/users/1070638897133166592/followers?max_results=1000",
     {
       headers: {
@@ -30,20 +35,20 @@ const fetchUser = async (username) => {
   return followBool;
 };
 
-export default async function generateMintSignature(req, res) {
-  const { address, username } = JSON.parse(req.body);
+export default async function generateMintSignature(req: NextApiRequest, res: NextApiResponse) {
+  const { address, username } = JSON.parse(req.body) as { address: string; username: string };
 
-  const key = process.env.PRIVATE_KEY;
+  const key = process.env.PRIVATE_KEY!;
 
   // Now use the SDK on Mainnet to get the signature drop
   const SDK = ThirdwebSDK.fromPrivateKey(key, "mainnet");
 
   const signatureDrop = await SDK.getContract(
-    process.env.CONTRACT_ADDRESS,
+    process.env.CONTRACT_ADDRESS!,
     "signature-drop"
   );
 
-  let userInDB = [];
+  let userInDB: unknown[] = [];
   let twitterFollower = true;
   if (username !== "srpass") {
     userInDB = await searchUsers(username);

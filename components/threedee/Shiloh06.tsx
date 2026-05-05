@@ -6,12 +6,12 @@ import React, { useRef } from "react";
 import { useGLTF, PresentationControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-export function Shiloh(props) {
+export function Shiloh(props: any) {
   const { scene } = useGLTF("/shiloh06.glb");
 
   const forest = scene.getObjectByName("forest_still");
 
-  const shilohRef = useRef();
+  const shilohRef = useRef<any>(null);
 
   useFrame((state, delta) => {
     shilohRef.current.position.y = -1.5;

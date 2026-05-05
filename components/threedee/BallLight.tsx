@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 const BallLight = () => {
-  const lightRef = useRef();
+  const lightRef = useRef<any>(null);
   let sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
   let sphereMaterial = new THREE.MeshLambertMaterial({
     color: 0x00ffff,

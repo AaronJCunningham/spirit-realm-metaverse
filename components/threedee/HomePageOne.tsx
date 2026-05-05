@@ -14,7 +14,11 @@ import BallLight from "./BallLight";
 import { TextForLandingPage } from "./TextForLandingPage";
 import { MobilePopUp } from "./MobilePopUp";
 
-const HomePageOne = ({ isMobile }) => {
+interface HomePageOneProps {
+  isMobile?: boolean;
+}
+
+const HomePageOne = ({ isMobile }: HomePageOneProps) => {
   const [loaded, setLoaded] = useState(false);
 
   const { progress } = useProgress();

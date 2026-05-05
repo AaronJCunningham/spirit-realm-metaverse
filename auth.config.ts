@@ -4,3 +4,7 @@
 //   privateKey:  "",
 //   domain: "example.com",
 // });
+
+export const ThirdwebAuthHandler = () => {
+  return () => {};
+};

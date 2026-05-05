@@ -2,7 +2,11 @@ import { Html } from "@react-three/drei";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export const Loader = ({ progress }) => {
+interface LoaderProps {
+  progress: number;
+}
+
+export const Loader = ({ progress }: LoaderProps) => {
   const [done, setDone] = useState(true);
   useEffect(() => {
     if (progress >= 99) {

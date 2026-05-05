@@ -3,6 +3,7 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import "../styles/index.scss";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import type { AppProps } from "next/app";
 
 import { CookieAccept } from "../components/cookies/CookieAccept";
 import Menu from "../components/menu/Menu";
@@ -13,7 +14,7 @@ import { useRouterFix } from "../store";
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mainnet;
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {

@@ -8,30 +8,30 @@ import { SiDiscord } from "react-icons/si";
 
 import { useMenu } from "../../store";
 
-const Menu = ({ width }) => {
+const Menu = ({ width }: { width?: number }) => {
   const [show, setShow] = useState(false);
   const [circleColor, setCircleColor] = useState("#23d5ab");
 
-  const circleRef = useRef();
+  const circleRef = useRef<SVGCircleElement | null>(null);
   const router = useRouter();
   const { menu } = useMenu();
 
   const handleMenuOpen = () => {
     setShow(!show);
     useMenu.setState({ menu: !menu });
-    gsap.to(circleRef.current, { r: !show ? 3000 : 0 });
+    gsap.to(circleRef.current!, { r: !show ? 3000 : 0 });
   };
 
-  const handleLink = (href) => {
+  const handleLink = (href: string) => {
     router.push(href);
     setShow(false);
-    gsap.to(circleRef.current, { r: 0 });
+    gsap.to(circleRef.current!, { r: 0 });
     useMenu.setState({ menu: false });
   };
 
   const handleSocial = () => {
     setShow(false);
-    gsap.to(circleRef.current, { r: 0 });
+    gsap.to(circleRef.current!, { r: 0 });
     useMenu.setState({ menu: false });
   };
 
@@ -48,7 +48,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/metaverse")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#e73c7e" })
+                gsap.to(circleRef.current!, { fill: "#e73c7e" })
               }
             >
               SPIRIT REALM <sup>BETA</sup>
@@ -56,7 +56,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/movie")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#FFA800" })
+                gsap.to(circleRef.current!, { fill: "#FFA800" })
               }
             >
               MOVIE
@@ -64,7 +64,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/mint")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#3EB489" })
+                gsap.to(circleRef.current!, { fill: "#3EB489" })
               }
             >
               MINT
@@ -73,7 +73,7 @@ const Menu = ({ width }) => {
             <li
               onClick={() => handleLink("/about")}
               onMouseEnter={() =>
-                gsap.to(circleRef.current, { fill: "#F906F9" })
+                gsap.to(circleRef.current!, { fill: "#F906F9" })
               }
             >
               ABOUT
@@ -83,7 +83,7 @@ const Menu = ({ width }) => {
                 className="social-menu-container"
                 onClick={handleSocial}
                 onMouseEnter={() =>
-                  gsap.to(circleRef.current, { fill: "#00FFF9 " })
+                  gsap.to(circleRef.current!, { fill: "#00FFF9 " })
                 }
               >
                 <a

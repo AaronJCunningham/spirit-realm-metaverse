@@ -16,21 +16,21 @@ const desc =
   "We created a collection of 5000 PFP NFTs, each of which represents a unique version of a character from our movie.";
 
 const Home = () => {
-  const refFree = useRef();
-  const refBuy = useRef();
+  const refFree = useRef<HTMLDivElement>(null);
+  const refBuy = useRef<HTMLDivElement>(null);
 
   const [username, setUserName] = useState("");
-  const [tokenId, setTokenId] = useState(null);
-  const [claimedNFT, setClaimedNFT] = useState(null);
+  const [tokenId, setTokenId] = useState<number | null>(null);
+  const [claimedNFT, setClaimedNFT] = useState<unknown>(null);
 
-  const handleMouseEnter = (ref) => {
+  const handleMouseEnter = (ref: React.RefObject<HTMLDivElement | null>) => {
     gsap.to(ref.current, {
       width: "82%",
       "min-height": "255px",
       duration: 0.5,
     });
   };
-  const handleMouseLeave = (ref) => {
+  const handleMouseLeave = (ref: React.RefObject<HTMLDivElement | null>) => {
     gsap.to(ref.current, {
       width: "80%",
       "min-height": "250px",
@@ -40,7 +40,7 @@ const Home = () => {
 
   const address = useAddress();
 
-  const handleUserNameInput = (e) => {
+  const handleUserNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value);
   };
 
@@ -86,7 +86,7 @@ const Home = () => {
           setTokenId(nft?.id.toNumber());
         }
       } catch (error) {
-        alert("error", error?.message);
+        alert(error?.message);
       }
     }
   }

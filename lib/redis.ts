@@ -1,4 +1,4 @@
-import { Client, Entity, Schema, fetchRepository, Repository } from "redis-om";
+import { Client, Entity, Schema } from "redis-om";
 
 const client = new Client();
 
@@ -22,7 +22,7 @@ let schema = new Schema(
   }
 );
 
-export async function createUser(data) {
+export async function createUser(data: { username: string }) {
   await connect();
   const repository = client.fetchRepository(schema);
   const user = repository.createEntity(data);
@@ -30,9 +30,7 @@ export async function createUser(data) {
   return id;
 }
 
-createUser("test");
-
-export async function searchUsers(q) {
+export async function searchUsers(q: string) {
   await connect();
   const repository = client.fetchRepository(schema);
   const user = await repository.search().where("username").eq(q).return.all();
@@ -42,6 +40,6 @@ export async function searchUsers(q) {
 
 export async function createIndex() {
   await connect();
-  const repository = new Repository(schema, client);
+  const repository = client.fetchRepository(schema);
   await repository.createIndex();
 }

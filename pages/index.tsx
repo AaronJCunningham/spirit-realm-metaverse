@@ -5,9 +5,14 @@ import MetaDataHeader from "../components/metaheader/MetaDataHeader";
 
 //G-6J7B5QK5HG
 
-const SpiritRealm = dynamic(() => import("../metaverseapp/SpiritRealm"), {
-  ssr: false,
-});
+interface SpiritRealmProps {
+  isMobile?: boolean;
+}
+
+const SpiritRealm = dynamic<SpiritRealmProps>(
+  () => import("../metaverseapp/SpiritRealm") as any,
+  { ssr: false }
+);
 
 const Shiloh = dynamic(() => import("../components/threedee/HomePageOne"), {
   ssr: false,

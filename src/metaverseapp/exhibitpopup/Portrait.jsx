@@ -19,6 +19,7 @@ export const Portrait = ({ exhibit, handleClose }) => {
                   height={exhibit.height / 2}
                   layout="responsive"
                   objectFit="cover"
+                  alt={exhibit.name || "Exhibit artwork"}
                 />
               </a>
             </div>

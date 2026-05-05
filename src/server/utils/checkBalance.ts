@@ -1,4 +1,4 @@
-import { contractAddress } from "../const/yourDetails";
+import { contractAddress } from "../../constants/yourDetails";
 import type { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 export default async function checkBalance(sdk: ThirdwebSDK, address: string): Promise<boolean> {

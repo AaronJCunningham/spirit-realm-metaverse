@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import axios from "axios";
-import { createUser, searchUsers } from "../../lib/redis";
+import { createUser, searchUsers } from "../../server/lib/redis";
 
 interface TwitterUser {
   username: string;
